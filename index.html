@@ -1,0 +1,3753 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Script do MathJax no <head> -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+
+    <title>Nivelamento - Física Nivel 1 - Unidade 2</title>
+
+    <style>
+        /* Global styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        .titulo-programa {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 50px;
+            color: #003974;
+            font-weight: lighter;
+        }
+
+        .titulo-materia {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 133px;
+            color: #003974;
+            font-weight: lighter;
+        }
+
+        .subtitulo-professor {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 59px;
+            color: #0058B4;
+            font-weight: lighter;
+        }
+
+        .titulo-unidade {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 60px;
+        }
+
+        .titulo-saiba-mais {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 70px;
+        }
+        /* Estilização de Bebas Neue FIM */
+
+
+        /* Estilização de Roboto INICIO */
+        .peso-1 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 45px;
+        }
+
+        .texto {
+            font-family: 'Roboto', sans-serif;
+            font-size: 35px;
+        }
+
+        .sub-texto {
+            font-family: 'Roboto', sans-serif;
+            font-size: 25px;
+        }
+
+        .titulo-box {
+            font-family: 'Roboto', sans-serif;
+            font-size: 32px;
+        }
+
+        .fonte {
+            font-family: 'Roboto', sans-serif;
+            font-size: 25px;
+        }
+
+        .citacao {
+            font-family: 'Roboto', sans-serif;
+            font-size: 30px;
+            font-style: italic;
+        }
+        /* Estilização de Roboto FIM */
+
+        /* Navbar styles INICIO */
+        .navbar {
+            background-color: #9F43BE;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            position: -webkit-sticky; /* Para navegadores antigos */
+            position: sticky; /* Para manter no topo durante o scroll */
+            top: 0; /* Faz com que a navbar fique no topo */
+            z-index: 10; /* Garante que o menu fique acima de outros elementos */
+            transition: background-color 0.3s ease; /* Transição suave para o efeito */
+        }
+
+        .navbar .logo img {
+            height: 50px;/* Ajuste conforme necessário */
+            width: auto;
+        }
+
+        .navbar .menu-toggle {
+            cursor: pointer;
+            font-size: 1.5em;
+            display: block;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: none;
+            flex-direction: column;
+            background-color: #9f43be;
+            position: absolute;
+            top: 60px;
+            right: 0;
+            width: 200px;
+            height: auto;
+            border-radius: 5px;
+            z-index: 10; /* Garante que o menu esteja acima de outros elementos */
+        }
+
+        .navbar ul.show {
+            display: flex;
+        }
+
+        .navbar ul li {
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .navbar ul li a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .navbar ul li a:hover {
+            color: #003974; /* Cor ao passar o mouse */
+        }
+        .navbar .menu-toggle i:last-child {
+            display: none; /* Esconde o ícone de fechar inicialmente */
+        }
+        
+
+         /* Navbar styles FIM */
+
+        /* Titulo styles INICIO */
+        .titulo-intro {
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .titulo-intro h1 {
+            margin: 0;
+            padding: 15px;
+        }
+        /* Titulo styles FIM */
+
+        /* Estilo da Capa do Livro INICIO*/
+        .capa-livro {
+            position: relative;
+            height: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow: hidden; /* Para evitar que o pseudoelemento saia do container */
+            border-top: 3px solid #003974;
+            border-bottom: 3px solid #003974;
+        }
+
+        .capa-livro::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://res.cloudinary.com/di4ria1pf/image/upload/v1759773391/244287440_l_w7bprt.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.40; /* Controle da opacidade */
+            z-index: -1; /* Coloca o background atrás do conteúdo */
+        }
+
+        
+
+        .capa-livro .conteudo-capa {
+            text-align: center;
+            color: white;
+            padding: 20px; /* Espaço interno para o texto */
+        }
+
+        .capa-livro .titulo-materia {
+            font-size: 80px;
+            font-family: 'Bebas Neue', cursive;
+            margin: 0;
+        }
+
+        .capa-livro .subtitulo-professor {
+            font-size: 40px;
+            font-family: 'Bebas Neue', cursive;
+            margin: 10px 0 0;
+        }
+        /* Estilo da Capa do Livro FIM*/
+
+        /* Barra Superior */
+        .barra-superior {
+            background-color: #015A42; /* Cor verde escuro */
+            width: 100%;
+            padding: 15px 15px;
+            text-align: center;
+            box-sizing: border-box; /* Inclui padding e bordas no cálculo da largura */
+            overflow-x: hidden; /* Previne rolagem horizontal */
+        }
+
+        .barra-superior .titulo-barra {
+            font-family: 'Bebas Neue', cursive;
+            color: #FFF; /* Cor branca */
+            font-size: 50px;
+            font-weight: lighter;
+            margin: 0;
+        }
+
+        /* Conteúdo da Introdução */
+        .introducao {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0;
+            overflow-x: hidden; /* Impede rolagem horizontal */
+        }
+        
+        .introducao .titulo-introducao {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 50px;
+            font-weight: lighter;
+            color: #015A42; /* Cor verde */
+            margin: 10px auto 10px auto;
+        }
+
+        .introducao .caixa-texto {
+            width: 100%;
+            background-color: #E2F4EB; /* Verde mais claro */
+            padding: 64px 0;
+        }
+                /* Conteúdo centralizado dentro da faixa */
+        .introducao .conteudo-centralizado {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Parágrafos da introdução */
+        .introducao .conteudo-centralizado p {
+            font-family: 'Roboto', sans-serif;
+            font-size: 19px;
+            line-height: 1.6;
+            text-align: justify;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        /* RESPONSIVIDADE SEÇÕES ACIMA*/
+        /* Capa do Livro - Responsividade */
+        @media (max-width: 768px) {
+            .capa-livro {
+                height: 70vh; /* Reduz a altura da capa */
+            }
+            .capa-livro::before {
+                background-position: center center; /* centraliza melhor no mobile */
+            }
+            .capa-livro .titulo-materia {
+                font-size: 40px; /* Reduz o tamanho do título */
+            }
+
+            .capa-livro .subtitulo-professor {
+                font-size: 24px; /* Reduz o tamanho do subtítulo */
+            }
+            .capa-livro .titulo-programa {
+                font-size: 18px;
+            }
+            .capa-livro .conteudo-capa {
+                padding: 15px; /* Ajusta o padding para telas menores */
+            }
+        }   
+            /* Seção Introdução - Responsividade */
+        @media (max-width: 768px) {
+            .barra-superior {
+                padding: 10px; /* Reduz o padding da barra */
+            }
+
+            .barra-superior .titulo-barra {
+                font-size: 1.6rem;
+                max-width: 800px;
+                margin: 10px 0;
+                padding: 0 30px;
+                text-align: left;
+            }
+
+            .introducao .titulo-introducao {
+                font-size: 2.8rem; /* Reduz o tamanho do título da introdução */
+                margin-top: 20px; /* Ajusta o espaçamento superior */
+            }
+
+            .introducao .caixa-texto {
+                padding: 20px; /* Reduz o padding da caixa de texto */
+                width: 100%; /* Ajusta a largura da caixa */
+            }
+
+            .introducao .caixa-texto p {
+                font-size: 1rem; /* Reduz o tamanho do texto */
+                line-height: 1.4;
+                margin-bottom: 10px; /* Ajusta a margem entre os parágrafos */
+            }
+            .introducao .conteudo-centralizado {
+                max-width: 800px;
+                margin: 10px 0;
+                padding: 0 40px;
+            }
+        }
+        /* Responsividade para o título da seção de Programa */
+        @media (max-width: 768px) {
+            .titulo-programa {
+                font-size: 50px; /* Ajuste do tamanho do título */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .titulo-programa {
+                font-size: 35px; /* Ajuste para telas muito pequenas */
+            }
+        }
+
+        /* Estilo base da seção */
+        .secao1 .conteudo-secao {
+            width: 100% !important;
+            padding: 64px 0 !important; /* padding vertical conforme solicitado */
+            box-sizing: border-box !important;
+        }
+        .secao1 .acordeon-container {
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+        }
+        .secao1 .tabs-section {
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+        }
+        /* Estilo base da seção */
+        .secao1 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #9f43be11;
+            padding: 20px;
+        }
+        .secao1 .outer-container-alt {
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+       }
+        /* Imagem de topo */
+        .secao1 .imagem-topo {
+            width: 100%;
+            height: auto;
+            max-height: 290px; /* ajuste essa altura conforme necessário */
+            object-fit: cover; /* garante que a imagem preencha sem distorcer */
+            display: block;
+            margin: 0;
+            padding: 0;
+            background-color: #FFF;
+        }
+
+        /* Faixa verde */
+        .secao1 .faixa-verde {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            text-align: left;
+        }
+
+        .secao1 .faixa-verde .titulo-secao {
+            font-size: 25px;
+            font-family: 'Roboto', sans-serif;
+            color: #015A42; /* Cor verde */
+            width: 90%;
+            margin: 20px auto;
+            max-width: 800px;
+            text-align: left;
+        }
+        .secao1 .titulo-verde {
+            font-size: 20px;
+            font-family: 'Roboto', sans-serif;
+            color: #015A42; /* Cor verde */
+            width: 90%;
+            margin: 20px auto;
+            max-width: 800px;
+            text-align: left;
+        }
+        /* Parágrafo padrão */
+        .secao1 p {
+            font-size: 19px;
+            text-align: justify;
+            line-height: 1.6;
+            color: #333;
+            margin: 10px auto;
+            width: 90%;
+            max-width: 800px;    
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .secao1 .faixa-verde .titulo-secao {
+                font-size: 20px;
+            }
+
+            .secao1 p {
+                font-size: 1rem;
+            }
+            .secao1 .imagem-topo {
+                max-height: 180px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .secao1 .faixa-verde .titulo-secao {
+                font-size: 20px;
+            }
+
+            .secao1 p {
+                font-size: 0.95rem;
+            }
+        }
+        /* Estilo base da seção */
+        .secao2 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background-color: #fff;
+        }
+        .secao2 .conteudo-secao {
+            width: 100%;
+            padding: 64px 0;
+            box-sizing: border-box;
+        }
+        .secao2 .acordeon-container {
+            width: 90%;
+            max-width: 800px;
+            margin: 10px auto;
+        }
+       .secao2 .outer-container {
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+       }
+        /* Imagem de topo */
+        .secao2 .imagem-topo {
+            width: 100%;
+            height: auto;
+            max-height: 290px; /* ajuste essa altura conforme necessário */
+            object-fit: cover; /* garante que a imagem preencha sem distorcer */
+            display: block;
+            margin: 0;
+            padding: 0;
+            background-color: #FFF;
+        }
+
+        /* Faixa verde */
+        .secao2 .faixa-verde {
+            width: 100%;
+            background-color: #fff;
+            padding: 10px;
+            box-sizing: border-box;
+            text-align: left;
+        }
+
+        .secao2 .faixa-verde .titulo-secao {
+            font-size: 25px;
+            font-family: 'Roboto', sans-serif;
+            color: #015A42; /* Cor verde */
+            width: 90%;
+            margin: 20px auto;
+            max-width: 800px;
+            text-align: left;
+        }
+        .secao2 .titulo-verde {
+            font-size: 20px;
+            font-family: 'Roboto', sans-serif;
+            color: #3a95a6; /* Cor verde */
+            width: 90%;
+            margin: 20px auto;
+            max-width: 800px;
+            text-align: left;
+        }
+        /* Parágrafo padrão */
+        .secao2 p {
+            font-size: 19px;
+            font-family: 'Roboto', sans-serif;
+            text-align: justify;
+            line-height: 1.6;
+            color: #333;
+            margin: 10px auto;
+            width: 90%;
+            max-width: 800px;
+                 
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .secao2 .faixa-verde .titulo-secao {
+                font-size: 30px;
+            }
+
+            .secao2 p {
+                font-size: 1rem;
+            }
+            .secao2 .imagem-topo {
+                max-height: 180px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .secao2 .faixa-verde .titulo-secao {
+                font-size: 24px;
+            }
+
+            .secao2 p {
+                font-size: 0.95rem;
+            }
+        }
+
+        /* Título centralizado fora do container */
+        .titulo-figura-central {
+            font-family: 'Roboto', sans-serif;
+            font-size: 18px;
+            color: #333;
+            text-align: center;
+            font-weight: normal;
+            margin: 20px auto 15px auto;
+        }
+
+        .titulo-figura-central .figura {
+            color: #015A42; /* verde padrão */
+        }
+
+        .titulo-figura-central .figura::after {
+            content: " ";
+            white-space: pre;
+        }
+
+        /* Bloco de figura simples (sem borda e sem fundo) */
+        .bloco-figura-simples {
+            width: 90%;
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 0;
+            background: none;
+            border: none;
+            text-align: center;
+        }
+
+        /* Imagem centralizada */
+        .bloco-figura-simples .figura-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 8px;
+        }
+
+        .bloco-figura-simples .figura-container img {
+            max-width: 75%;
+            height: auto;
+            display: block;
+        }
+
+        /* Fonte abaixo da imagem */
+        .bloco-figura-simples .fonte-imagem {
+            font-size: 12px;
+            color: #555;
+            text-align: center;
+            margin: 5px auto 12px auto;
+            max-width: 90%;
+        }
+
+        /* Descrição mais larga */
+        .bloco-figura-simples .descricao-figura-larga {
+            font-size: 14px;
+            color: #333;
+            text-align: justify;
+            line-height: 1.5;
+            max-width: 95%;
+            margin: 0 auto;
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .titulo-figura-central {
+                font-size: 16px;
+                margin-bottom: 10px;
+            }
+            .bloco-figura-simples .descricao-figura-larga {
+                font-size: 13px;
+                max-width: 100%;
+            }
+        }
+
+
+        .slider-texto-container {
+            position: relative;
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+            border: 2px solid #3a95a6;
+            padding: 20px 30px;
+            box-sizing: border-box;
+            overflow: hidden;
+            background-color: #FFF;
+            border-radius: 8px;
+        }
+        .slider-texto-wrapper {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            width: 100%;
+        }
+
+        .slide-texto {
+            display: none;
+            flex-shrink: 0;
+            width: 100%;
+            text-align: center;
+            word-break: keep-all;
+            white-space: normal;
+            
+        }
+
+        .slide-texto.ativo {
+            display: block;
+        }
+
+        .titulo-texto {
+            color: #b9e5a9;
+            font-weight: bold;
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-family: 'Roboto', sans-serif;
+            width: 100%;
+        }
+
+        .conteudo-texto {
+            font-size: 16px !important;
+            color: #333 !important;
+            font-family: 'Roboto', sans-serif !important;
+            width: 100%;
+            margin: 0 auto;
+            word-break: normal;
+            white-space: normal;
+            text-align: left !important;
+        }
+        .titulo-texto,
+        .conteudo-texto {
+            word-break: break-word;
+            white-space: normal;
+        }
+        .seta-texto {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: transparent;
+            border: none;
+            font-size: 30px;
+            color: #3a95a6;
+            cursor: pointer;
+            padding: 10px;
+            z-index: 10;
+        }
+
+        .seta-texto.esquerda {
+            left: 0;
+        }
+
+        .seta-texto.direita {
+            right: 0;
+        }
+
+    @media (max-width: 768px) {
+        .titulo-texto {
+            font-size: 20px;
+        }
+
+        .conteudo-texto {
+            font-size: 18px;
+        }
+
+        .seta-texto {
+            font-size: 24px;
+        }
+    }
+        .slider-texto-indicadores {
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+
+        .dot-texto {
+            height: 12px;
+            width: 12px;
+            margin: 0 6px;
+            background-color: #ccc;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .dot-texto.ativo {
+            background-color: #3a95a6;
+        }
+        /* ------------------- */
+        /* TEMAS DE COR        */
+        /* ------------------- */
+
+        /* Tema verde */
+        .tema-verde {
+            border-color: #92d678;
+        }
+        .tema-verdeborda {
+            border-color: #015A42 !important;
+        }
+        .tema-verde .seta-texto {
+            color: #92d678;
+        }
+        .tema-verde .dot-texto.ativo {
+            background-color: #92d678;
+        }
+
+        /* Tema roxo */
+        .tema-roxo {
+            border-color: #134969;
+        }
+        .tema-roxo .seta-texto {
+            color: #134969;
+        }
+        .tema-roxo .dot-texto.ativo {
+            background-color: #134969;
+        }
+
+        /* Tema roxo */
+        .tema-green {
+            border-color: #015A42;
+        }
+        .tema-green .seta-texto {
+            color: #015A42;
+        }
+        .tema-green .dot-texto.ativo {
+            background-color: #015A42;
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .seta-texto { font-size: 24px; }
+            .conteudo-texto { font-size: 18px; }
+        }
+
+        /* Acordeon styles */
+        .acordeon-container {
+            margin-top: 20px;
+            width: 90%; /* Ajuste de largura */
+            max-width: 800px; /* Limite máximo */
+        }
+
+        .acordeon {
+            border-radius: 10px;
+            margin-bottom: 10px;
+            overflow: hidden;
+        }
+
+        .acordeon-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #3a95a6;
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            font-size: 17px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .acordeon-headerb {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #134969;
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            font-size: 17px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .acordeon-headerc {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #9F43BE;
+            color: #FFF;
+            cursor: pointer;
+            padding: 15px;
+            font-size: 17px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .acordeon-headerd {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #134969; /* exemplo: laranja suave */
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            font-size: 17px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .acordeon-content {
+            display: none;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            padding-top: 0; /* Remove padding para que o header toque no conteúdo */
+            border: 2px solid #3a95a6;
+            border-radius: 0 0 10px 10px; /* Apenas canto inferior arredondado */
+        }
+
+        .acordeon-contentb {
+            display: none;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            padding-top: 0; /* Remove padding para que o header toque no conteúdo */
+            border: 2px solid #134969;
+            border-radius: 0 0 10px 10px; /* Apenas canto inferior arredondado */
+        }
+
+        .acordeon-contentc {
+            display: none;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            padding-top: 0; /* Remove padding para que o header toque no conteúdo */
+            border: 2px solid #9F43BE;
+            border-radius: 0 0 10px 10px; /* Apenas canto inferior arredondado */
+        }
+
+        .acordeon-contentd {
+            display: none;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            padding-top: 0; 
+            border: 2px solid #134969; /* mesma cor da header para consistência */
+            border-radius: 0 0 10px 10px; 
+        }
+
+        .acordeon-content p {
+            margin: 20px auto;
+            font-size: 16px;
+        }
+        .acordeon-contentb p {
+            margin: 20px auto;
+            font-size: 16px;
+        }
+        .acordeon-contentc p {
+            margin: 20px auto;
+            font-size: 16px;
+        }
+        .acordeon-contentc h4 {
+            text-align: center;
+
+        }
+        .acordeon-contentd p {
+            margin: 20px auto;
+            font-size: 16px;
+        }
+        .tituloacordeonverde{
+            color: #015A42;
+        }
+            /* Estilo do ícone da seta */
+        .acordeon-icon {
+            font-size: 40px;
+            transition: transform 0.3s ease; /* Para rotação suave */
+        }
+            
+            /* Rotação da seta para cima */
+        .acordeon-header.active .acordeon-icon {
+            transform: rotate(180deg); /* Gira a seta para cima */
+        }
+        /* Rotação da seta para cima */
+        .acordeon-headerb.active .acordeon-icon {
+            transform: rotate(180deg); /* Gira a seta para cima */
+        }
+        /* Rotação da seta para cima */
+        .acordeon-headerc.active .acordeon-icon {
+            transform: rotate(180deg); /* Gira a seta para cima */
+        }
+                /* Ícone giratório */
+        .acordeon-headerd.active .acordeon-icon {
+            transform: rotate(180deg);
+        }
+       
+                /* Mantém fórmulas normais no desktop */
+        .acordeon-contentc mjx-container {
+            display: inline-block !important;
+            overflow: visible !important;
+            white-space: normal !important;
+            max-width: 100%;
+            text-align: center;
+        }
+        /* 📱 Responsividade — corrige fórmulas longas no mobile */
+        @media (max-width: 600px) {
+            .acordeon-contentc {
+                overflow-x: auto;
+                overflow-y: hidden;
+                -webkit-overflow-scrolling: touch;
+                padding-bottom: 6px; /* dá um pequeno respiro no scroll */
+            }
+
+            /* Cada expressão matemática vira um bloco rolável */
+            .acordeon-contentc mjx-container {
+                display: block !important;
+                overflow-x: auto !important;
+                overflow-y: hidden !important;
+                white-space: nowrap !important;
+                text-align: left !important;
+                max-width: 100%;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            /* Centraliza visualmente os parágrafos dentro do acordeon */
+            .acordeon-contentc p {
+                text-align: center;
+                margin: 10px auto;
+            }
+        }
+
+                    /* --- Força mínima para que mjx fique rolável no mobile --- */
+            @media (max-width: 600px) {
+            /* Container do conteúdo: permitir overflow-x funcional */
+            .acordeon-contentc {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                /* não mexemos em overflow-y, nem no overflow do .acordeon (mantemos o visual) */
+            }
+
+            /* mjx-container: garantir que o conteúdo interno possa ter largura natural maior
+                (min-width: max-content faz com que o elemento não seja encolhido) */
+            .acordeon-contentc mjx-container {
+                display: inline-block !important;
+                white-space: nowrap !important;           /* evita wrap que "quebra" largura */
+                min-width: -webkit-min-content !important;
+                min-width: -moz-min-content !important;
+                min-width: min-content !important;
+                pointer-events: auto !important;          /* garante que toques atinjam este elemento */
+                touch-action: auto !important;
+                -webkit-overflow-scrolling: touch !important;
+            }
+
+            /* Se você usa spans com inline-block dentro de p (como seu exemplo),
+                garantir que eles não forcem comportamento estranho: */
+            .acordeon-contentc p,
+            .acordeon-contentc p > span {
+                overflow: visible;
+                width: 100%;
+                box-sizing: border-box;
+            }
+            }
+        /* Responsividade para telas menores */
+        @media (max-width: 768px) {
+            .acordeon-header {
+                font-size: 20px; /* Reduzir tamanho do texto */
+                padding: 12px; /* Ajustar espaçamento */
+            }
+
+            .acordeon-icon {
+                font-size: 30px; /* Reduzir tamanho do ícone */
+            }
+
+            .acordeon-content {
+                font-size: 14px; /* Reduzir tamanho do texto do conteúdo */
+                padding: 10px; /* Reduzir espaçamento interno */
+            }
+
+            .acordeon-content p {
+                margin: 15px; /* Ajustar margem para menor espaçamento */
+            }
+            .acordeon-headerb {
+                font-size: 20px; /* Reduzir tamanho do texto */
+                padding: 12px; /* Ajustar espaçamento */
+            }
+
+            .acordeon-icon {
+                font-size: 30px; /* Reduzir tamanho do ícone */
+            }
+
+            .acordeon-contentb {
+                font-size: 14px; /* Reduzir tamanho do texto do conteúdo */
+                padding: 10px; /* Reduzir espaçamento interno */
+            }
+
+            .acordeon-contentb p {
+                margin: 15px; /* Ajustar margem para menor espaçamento */
+            }
+
+            .acordeon-headerc {
+                font-size: 20px; /* Reduzir tamanho do texto */
+                padding: 12px; /* Ajustar espaçamento */
+            }
+
+            .acordeon-icon {
+                font-size: 30px; /* Reduzir tamanho do ícone */
+            }
+
+            .acordeon-contentc {
+                font-size: 14px; /* Reduzir tamanho do texto do conteúdo */
+                padding: 10px; /* Reduzir espaçamento interno */
+            }
+
+            .acordeon-contentc p {
+                margin: 15px; /* Ajustar margem para menor espaçamento */
+            }
+            .acordeon-headerd {
+                font-size: 20px;
+                padding: 12px;
+            }
+
+            .acordeon-contentd {
+                font-size: 14px;
+                padding: 10px;
+            }
+
+            .acordeon-contentd p {
+                margin: 15px;
+            }
+        }
+        /* Responsividade para telas menores ainda (480px) */
+        @media (max-width: 480px) {
+            .acordeon-header {
+                font-size: 16px; /* Reduz ainda mais o tamanho do texto */
+                padding: 10px; /* Ajustar espaçamento */
+            }
+
+            .acordeon-icon {
+                font-size: 25px; /* Reduzir tamanho do ícone */
+            }
+
+            .acordeon-content {
+                font-size: 13px; /* Reduzir tamanho do texto do conteúdo */
+                padding: 8px; /* Reduzir espaçamento interno */
+            }
+
+            .acordeon-content p {
+                margin: 10px; /* Ajustar margem para menor espaçamento */
+                font-size: 19px;
+            }
+            .acordeon-headerb {
+                font-size: 16px; /* Reduz ainda mais o tamanho do texto */
+                padding: 10px; /* Ajustar espaçamento */
+            }
+
+            .acordeon-icon {
+                font-size: 25px; /* Reduzir tamanho do ícone */
+            }
+
+            .acordeon-contentb {
+                font-size: 13px; /* Reduzir tamanho do texto do conteúdo */
+                padding: 8px; /* Reduzir espaçamento interno */
+            }
+
+            .acordeon-contentb p {
+                margin: 10px; /* Ajustar margem para menor espaçamento */
+                font-size: 19px;
+            }
+
+            .acordeon-headerc {
+                font-size: 16px; /* Reduz ainda mais o tamanho do texto */
+                padding: 10px; /* Ajustar espaçamento */
+            }
+
+            .acordeon-icon {
+                font-size: 25px; /* Reduzir tamanho do ícone */
+            }
+
+            .acordeon-contentc {
+                font-size: 13px; /* Reduzir tamanho do texto do conteúdo */
+                padding: 8px; /* Reduzir espaçamento interno */
+            }
+
+            .acordeon-contentc p {
+                margin: 10px; /* Ajustar margem para menor espaçamento */
+                font-size: 19px;
+            }
+            .acordeon-headerd {
+                font-size: 16px;
+                padding: 10px;
+            }
+
+            .acordeon-contentd {
+                font-size: 13px;
+                padding: 8px;
+            }
+
+            .acordeon-contentd p {
+                margin: 10px;
+                font-size: 19px;
+            }
+        }
+            /* Acordeon styles FIM */
+
+            .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            justify-content: center;
+            align-items: center;
+            cursor: grab;
+            overflow: hidden;
+        }
+
+        .lightbox img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain; /* garante que se ajuste à tela inicialmente */
+            transition: transform 0.2s ease;
+            transform-origin: center center;
+        }
+        .lightbox-hint {
+            position: absolute;
+            bottom: 20px;
+            color: #fff;
+            font-size: 14px;
+            opacity: 0.8;
+            font-family: sans-serif;
+            text-align: center;
+            animation: fadeOut 4s forwards; /* some sozinho */
+        }
+        .zoomable {
+            cursor: zoom-in; /* ícone de lupa ao passar o mouse */
+            transition: transform 0.2s ease;
+        }
+
+        .zoomable:hover {
+            transform: scale(1.02); /* leve efeito de destaque no hover */
+        }
+        @keyframes fadeOut {
+            0% { opacity: 0.8; }
+            80% { opacity: 0.8; }
+            100% { opacity: 0; }
+        }
+                /* Animação suave */
+                @keyframes zoomIn {
+                    from { transform: scale(0.7); opacity: 0; }
+                    to { transform: scale(1); opacity: 1; }
+                }
+
+
+        .play-icon {
+            display: flex; /* Flexbox para centralizar o conteúdo */
+            justify-content: center;
+            align-items: center;
+            background-color: #015A42; /* Fundo verde */
+            color: #FFF; /* Ícone branco */
+            width: 90px; /* Largura do botão */
+            height: 55px; /* Altura do botão */
+            border-radius: 13px;
+            font-size: 40px; /* Tamanho do ícone */
+            cursor: pointer; /* Cursor de clique */
+            transition: transform 0.3s ease; /* Efeito de transição */
+        }
+
+        .play-icon:hover {
+            transform: scale(1.1); /* Aumenta levemente no hover */
+        }
+                /* Responsividade - Ajuste para telas menores */
+        @media (max-width: 768px) {
+            .play-icon {
+                width: 60px; /* Diminui a largura */
+                height: 40px; /* Diminui a altura */
+                font-size: 25px; /* Diminui o tamanho do ícone */
+            }
+        }
+        /* Modal - Oculto por padrão */
+        .video-modal {
+            display: none; /* Inicialmente o modal está oculto */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8); /* Fundo escuro transparente */
+            z-index: 1000; /* Garantir que o modal fique acima de outros conteúdos */
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Conteúdo do modal (onde ficará o vídeo) */
+        .video-content {
+            position: relative;
+            background-color: #015A42;
+            border-radius: 10px;
+            padding: 20px;
+        }
+         
+        /* Responsividade - Ajustes para dispositivos móveis */
+        @media (max-width: 768px) {
+            .video-content {
+                max-width: 100%; /* Maximize a largura do modal no mobile */
+                padding: 10px;
+            }
+
+            .video-content iframe {
+                width: 100%; /* O iframe ocupará toda a largura disponível */
+                height: 56.25vw; /* Isso mantém a proporção de 16:9 */
+                max-height: 80vh; /* Evita que o vídeo ultrapasse a tela */
+                border-radius: 10px;
+            }
+        }
+
+        /* Botão de fechar */
+        .close-btn {
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            font-size: 40px;
+            color: #FFF;
+            cursor: pointer;
+            transition: transform 0.2s ease, color 0.2s ease;
+        }
+        .close-btn:hover {
+            transform: scale(1.2); /* Aumenta levemente no hover */
+            color: #FF0000; /* Muda a cor para vermelho no hover */
+        }
+                /* Container */
+        .video-play-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 30px 0;
+        }
+
+        /* Botão circular */
+        .video-play-btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(145deg, #017A5A, #015A42); /* Gradiente verde */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            color: #FFF;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            font-size: 55px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        /* Efeito pulsante */
+        .video-play-btn::after {
+            content: "";
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 2px solid rgba(1,90,66,0.6);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.6; }
+            70% { transform: scale(1.3); opacity: 0; }
+            100% { transform: scale(1); opacity: 0; }
+        }
+
+        .video-play-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+        }
+
+        /* Texto abaixo */
+        .video-play-text {
+            margin-top: 10px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            color: #015A42;
+            font-weight: 600;
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .video-play-btn {
+                width: 70px;
+                height: 70px;
+                font-size: 35px;
+            }
+
+            .video-play-btn::after {
+                width: 85px;
+                height: 85px;
+            }
+
+            .video-play-text {
+                font-size: 14px;
+            }
+        }
+
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            max-width: 600px;
+            width: 90%;
+        }
+
+        .flip-card {
+            background-color: transparent;
+            width: 100%;
+            height: 180px;
+            perspective: 1000px;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+            cursor: pointer;
+        }
+
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 8px;
+            backface-visibility: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        /* Frente */
+        .flip-card-front {
+            background-color: #9F43BE;
+            color: white;
+            font-weight: bold;
+            border: 2px solid #9F43BE;
+            font-size: 1.2rem;
+        }
+
+        /* Verso */
+        .flip-card-back {
+            background-color: white;
+            color: #333;
+            border: 2px solid #9F43BE;
+            transform: rotateY(180deg);
+            font-weight: 500;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 15px;
+        }
+        .math-content {
+            width: 100%;
+            overflow: hidden;
+        }
+        /* Responsividade aprimorada */
+        @media (max-width: 768px) {
+            .cards-container {
+                grid-template-columns: 1fr;
+                gap: 15px;
+                max-width: 400px;
+            }
+
+            .flip-card {
+                height: 150px;
+            }
+
+            .flip-card-front {
+                font-size: 1.1rem;
+            }
+
+            .flip-card-back {
+                padding: 12px;
+            }
+
+            .math-content {
+                font-size: 0.9rem;
+                line-height: 1.4;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .cards-container {
+                gap: 12px;
+            }
+
+            .flip-card {
+                height: 140px;
+            }
+
+            .flip-card-front {
+                font-size: 1rem;
+                padding: 15px;
+            }
+
+            .flip-card-back {
+                padding: 10px;
+            }
+
+            .math-content {
+                font-size: 0.85rem;
+                line-height: 1.3;
+            }
+        }
+
+        /* Para telas muito pequenas */
+        @media (max-width: 360px) {
+            .flip-card {
+                height: 130px;
+            }
+
+            .math-content {
+                font-size: 0.8rem;
+            }
+        }
+
+        /* Melhorias de interação para mobile */
+        @media (hover: none) {
+            .flip-card:hover .flip-card-inner {
+                transform: none;
+            }
+            
+            .flip-card.active .flip-card-inner {
+                transform: rotateY(180deg);
+            }
+        }
+
+        /* === Temas reutilizáveis para os flip-cards === */
+
+            /* Tema Verde */
+            .tema-verde .flip-card-front {
+                background-color: #015A42;
+                border-color: #015A42;
+                color: #FFFFFF;
+            }
+
+            .tema-verde .flip-card-back {
+                background-color: #FFFFFF;
+                border-color: #015A42;
+                color: #015A42;
+            }
+            /* --- Centraliza o 3º card apenas quando houver exatamente 3 cards --- */
+        /* Seleciona o 3º card e garante que ele seja o último (ou seja, existem exatamente 3) */
+        .cards-container > .flip-card:nth-child(3):last-child {
+            grid-column: 1 / -1;   /* ocupa as duas colunas do grid */
+            justify-self: center;  /* centraliza dentro da área que ocupa */
+            max-width: 280px;      /* controla largura para não esticar — ajuste se quiser */
+            width: 100%;           /* mantém o comportamento responsivo */
+        }
+
+        /* Ajuste do gap quando o 3º card ocupa toda a linha (opcional) */
+        .cards-container > .flip-card:nth-child(3):last-child + .flip-card {
+            /* regra só por segurança — não deve haver elementos depois, pois é o last-child */
+        }
+
+        /* Responsividade: mantemos o mesmo comportamento em telas menores */
+        @media (max-width: 768px) {
+            .cards-container > .flip-card:nth-child(3):last-child {
+                max-width: 45%; /* menor para telas menores — ajuste conforme necessário */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .cards-container > .flip-card:nth-child(3):last-child {
+                max-width: 90%; /* em telas muito estreitas deixa ficar quase full-width */
+            }
+        }
+
+        /* Retângulo de fundo */
+        .background-section {
+            background-color: #015A42; /* Cor de fundo verde */
+            border-radius: 20px; /* Bordas arredondadas */
+            min-height: 450px; /* Altura mínima */
+            width: 90%; /* Largura ajustada à estrutura */
+            max-width: 800px; /* Limite máximo */
+            height: auto; /* Altura do retângulo */
+            margin: 50px auto; /* Espaçamento da seção acima e centralização */
+            position: relative; /* Define o contexto de empilhamento */
+        }
+                /* Responsividade - Ajuste para telas menores */
+        @media (max-width: 768px) {
+            .background-section {
+                width: 85%;
+                margin: 50px auto;
+                padding: 20px;
+            }
+        }
+        
+        /* Retângulo transparente (sobreposição) */
+        .transparent-section {
+            background-color: rgba(255, 255, 255, 0.822); /* Tom verde com transparência */
+            border: 2px solid #015A42; /* Borda sólida verde */
+            border-radius: 20px; /* Bordas arredondadas */
+            width: calc(100% - 40px); /* Reduz tamanho para acomodar margens */
+            height: 100%;
+            position: absolute; /* Define posicionamento relativo */
+            top: 20px;
+            left: 20px; 
+            z-index: 1; /* Garante que o retângulo fique sobre o fundo */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra opcional */
+            display: flex; /* Usamos flexbox para alinhar o conteúdo */
+            flex-direction: column; /* Alinha os elementos verticalmente */
+            justify-content: space-evenly; /* Distribui espaço uniformemente */
+            align-items: center; /* Alinha o conteúdo à esquerda */
+            text-align: center; /* Centraliza o texto */
+        }
+        
+        
+                /* Responsividade - Ajuste da largura da transparent-section para telas menores */
+        @media (max-width: 768px) {
+            .transparent-section {
+                width: 90%; /* Diminui a largura da sobreposição */
+                left: 5%; /* Ajusta o posicionamento para centralizar */
+                right: 5%; /* Garante que o elemento ocupe menos espaço na tela */
+                padding-top: 10px;
+                padding-bottom: 10px;
+            }
+        }
+        /* Círculo verde */
+        .circle-green {
+            position: absolute;
+            top: -30px; /* Distância do topo */
+            left: -30px; /* Distância da esquerda */
+            background-color: #015A42; /* Cor verde */
+            border-radius: 50%; /* Para garantir que seja redondo */
+            width: 120px; /* Tamanho do círculo */
+            height: 120px; /* Tamanho do círculo */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2; /* Garantir que fique sobre o fundo */
+        }
+
+        /* Círculo branco sobre o verde */
+        .circle-white {
+            position: absolute;
+            top: -4px; /* Eleva o círculo branco para cima */
+            left: -5px; /* Centraliza o círculo branco sobre o verde */
+            background-color: white; /* Cor branca */
+            border-radius: 50%; /* Para garantir que seja redondo */
+            width: 120px; /* Tamanho do círculo branco */
+            height: 120px; /* Tamanho do círculo branco */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 3; /* Coloca o círculo branco sobre o verde */
+        }
+
+        /* Estilizando o ícone dentro do círculo branco */
+        .circle-white i {
+            font-size: 80px; /* Tamanho do ícone */
+            color: #015A42; /* Cor verde para o ícone */
+        }
+        /* Responsividade - Ajuste para telas menores */
+        @media (max-width: 768px) {
+            .circle-green, .circle-white {
+                width: 60px; /* Diminui o tamanho */
+                height: 60px; /* Diminui o tamanho */
+                top: -5px; /* Ajusta o posicionamento */
+                left: -5px; /* Ajusta o posicionamento */
+            }
+
+            .circle-white i {
+                font-size: 40px; /* Reduz o ícone */
+            }
+        }
+              /* Retângulo de fundo */
+        .background-section2 {
+            background-color: #015A42 !important;
+            border-radius: 20px !important;
+            width: 90%;
+            max-width: 800px;
+            margin: 50px auto;
+            position: relative;
+            padding: 30px; /* adiciona espaçamento interno */
+            box-sizing: border-box;
+            height: auto; /* deixa a altura fluir conforme o conteúdo */
+            min-height: unset; /* remove altura mínima fixa */
+        }
+               
+        
+                    /* Retângulo transparente */
+            .transparent-section2 {
+                background-color: rgba(255, 255, 255, 0.9);
+                border: 2px solid #015A42;
+                border-radius: 20px;
+                padding: 20px;
+                width: 100%;
+                box-sizing: border-box;
+                position: relative; /* relativo em vez de absolute */
+                z-index: 1;
+                display: flex;
+                flex-direction: column;
+                gap: 5px; /* espaço natural entre elementos */
+            }
+        
+                @media (max-width: 768px) {
+            .background-section2 {
+                width: 95%;
+                margin: 30px auto;
+                padding: 15px;
+            }
+
+            .transparent-section2 {
+                padding: 15px;
+                gap: 5px;
+            }
+        }
+        
+        /* Círculo verde */
+        .circle-green2 {
+            position: absolute;
+            top: -30px; /* Distância do topo */
+            left: -30px; /* Distância da esquerda */
+            background-color: #015A42; /* Cor verde */
+            border-radius: 50%; /* Para garantir que seja redondo */
+            width: 120px; /* Tamanho do círculo */
+            height: 120px; /* Tamanho do círculo */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2; /* Garantir que fique sobre o fundo */
+        }
+
+        /* Círculo branco sobre o verde */
+        .circle-white2 {
+            position: absolute;
+            top: -4px; /* Eleva o círculo branco para cima */
+            left: -5px; /* Centraliza o círculo branco sobre o verde */
+            background-color: white; /* Cor branca */
+            border-radius: 50%; /* Para garantir que seja redondo */
+            width: 120px; /* Tamanho do círculo branco */
+            height: 120px; /* Tamanho do círculo branco */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 3; /* Coloca o círculo branco sobre o verde */
+        }
+
+        /* Estilizando o ícone dentro do círculo branco */
+        .circle-white2 i {
+            font-size: 80px; /* Tamanho do ícone */
+            color: #015A42; /* Cor verde para o ícone */
+        }
+        /* Responsividade - Ajuste para telas menores */
+        @media (max-width: 768px) {
+            .circle-green2, .circle-white2 {
+                width: 60px; /* Diminui o tamanho */
+                height: 60px; /* Diminui o tamanho */
+                top: -5px; /* Ajusta o posicionamento */
+                left: -5px; /* Ajusta o posicionamento */
+            }
+
+            .circle-white2 i {
+                font-size: 40px; /* Reduz o ícone */
+            }
+        }
+
+        .learn-more-title {
+            color: #015A42; /* Cor verde */
+            font-size: 50px; /* Tamanho do título */
+            font-weight: lighter;
+            text-align: left;
+            font-family: 'Bebas Neue', sans-serif; /* Fonte Bebas Neue */
+            margin: -25px 0;
+            width: 80%; /* Ocupa toda a largura disponível */
+        }
+        .learn-more-paragraph {
+            font-family: 'Roboto', sans-serif; /* Fonte Roboto */
+            text-align: left;
+            font-size: 17px;
+            line-height: 1.4; /* Espaçamento entre linhas */
+            color: #000; /* Cor verde */
+            margin: 0px; /* Reduz margens */
+            width: 90%; /* Ocupa toda a largura disponível */
+            word-wrap: break-word;
+        }
+         .learn-more-link {
+            font-family: 'Roboto', sans-serif; 
+            text-align: left;
+            font-size: 17px;
+            line-height: 1.4; 
+            color: #FFF; /* cor do texto */
+            margin: 0px; 
+            width: 90%; 
+            word-wrap: break-word;
+            padding: 5px;
+            background-color: #669e87;
+            cursor: pointer; /* mostra a mãozinha ao passar o mouse */
+            text-decoration: none; /* opcional: simula link */
+            transition: background-color 0.3s, color 0.3s; /* efeito ao passar o mouse */
+        }
+
+
+        .centered-paragraph {
+            text-align: center; /* Centraliza o texto horizontalmente */
+            margin: -5px 0; /* Ajusta a margem para uniformidade */
+            font-size: 17px; /* Mantém o tamanho consistente */
+            line-height: 1.4; /* Controla o espaçamento entre linhas */
+        }
+                /* Responsividade - Ajuste para telas menores */
+        @media (max-width: 768px) {
+            .learn-more-title {
+                font-size: 35px; /* Ajusta o tamanho do título */
+                text-align: left;
+            }
+
+            .learn-more-paragraph {
+                font-size: 15px; /* Ajusta o tamanho do texto */
+                line-height: 1.4;
+                text-align: justify; /* Centraliza o texto */
+                margin: 5px 0; /* Reduz margens */
+            }
+        }
+            .outer-background {
+                background-color: #fff; /* Cor de fundo para o contêiner externo */
+        }
+
+                    /* Estilos para o conteúdo matemático responsivo */
+            .math-content-wrapper {
+                width: 100%;
+                overflow-x: auto;
+                padding: 10px 0;
+            }
+
+            .learn-more-paragraph {
+                max-width: 100% !important;
+                word-wrap: break-word !important;
+            }
+
+            /* Para equações muito longas em mobile */
+            @media (max-width: 768px) {
+                .math-content-wrapper {
+                    overflow-x: auto;
+                    -webkit-overflow-scrolling: touch;
+                }
+                
+                .learn-more-paragraph {
+                    font-size: 0.95rem;
+                    line-height: 1.3;
+                }
+                
+                /* Estilo específico para MathJax em mobile */
+                .mjx-chtml {
+                    max-width: 100% !important;
+                    overflow-x: auto !important;
+                }
+                
+                /* Forçar quebra em elementos matemáticos muito longos */
+                mjx-container {
+                    max-width: 100% !important;
+                    overflow-x: auto !important;
+                }
+            }
+
+            @media (max-width: 480px) {
+                .learn-more-paragraph {
+                    font-size: 0.9rem;
+                    text-align: left !important;
+                }
+                
+                .math-content-wrapper {
+                    padding: 5px 0;
+                }
+                
+                /* Ajuste adicional para equações muito longas */
+                mjx-math {
+                    max-width: 100% !important;
+                }
+            }
+
+            /* Opcional: Adicionar uma barra de scroll personalizada */
+            .math-content-wrapper::-webkit-scrollbar {
+                height: 6px;
+            }
+
+            .math-content-wrapper::-webkit-scrollbar-track {
+                background: #f1f1f1;
+                border-radius: 3px;
+            }
+
+            .math-content-wrapper::-webkit-scrollbar-thumb {
+                background: #9F43BE;
+                border-radius: 3px;
+            }
+
+            .math-content-wrapper::-webkit-scrollbar-thumb:hover {
+                background: #8a32a9;
+            }
+
+        /* TESTES */
+
+        .quadro-problema {
+            max-width: 800px;
+            width: 95%; /* adapta o quadro à tela menor */
+            margin: 20px auto;
+            border: 2px solid #015A42;
+            border-radius: 10px;
+            overflow: hidden;
+            font-family: 'Roboto', sans-serif;
+            box-sizing: border-box;
+        }
+
+        .quadro-problema .topo {
+            background-color: #ffffff;
+            padding: 10px;
+            
+        }
+
+        .quadro-problema .resolucao {
+            background-color: #E2F4EB;
+            padding: 10px;
+            border-radius: 0 0 10px 10px;
+        }
+
+        .quadro-problema h3 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .quadro-problema p {
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        .quadro-problema code {
+            background-color: #d9f0e1;
+            padding: 2px 4px;
+            border-radius: 20px;
+            font-family: monospace;
+        }
+        /* Estilos para cálculos matemáticos extensos */
+        .math-equation-container {
+            width: 100%;
+            overflow-x: auto;
+            padding: 10px 0;
+            margin: 10px 0;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .math-equation-container mjx-container {
+            min-width: fit-content;
+        }
+
+        /* Scroll personalizado para equações */
+        .math-equation-container::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .math-equation-container::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 3px;
+        }
+
+        .math-equation-container::-webkit-scrollbar-thumb {
+            background: #9F43BE;
+            border-radius: 3px;
+        }
+
+        .math-equation-container::-webkit-scrollbar-thumb:hover {
+            background: #8a32a9;
+        }
+
+        /* Ajustes responsivos */
+        @media (max-width: 768px) {
+            .math-equation-container {
+                padding: 8px 0;
+                margin: 8px 0;
+            }
+            
+            .resolucao p {
+                font-size: 0.95rem;
+                line-height: 1.4;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .math-equation-container {
+                padding: 6px 0;
+                margin: 6px 0;
+            }
+            
+            .resolucao p {
+                font-size: 0.9rem;
+            }
+        }
+        .figura-container-reduzida {
+            text-align: center; /* centraliza a imagem */
+            margin: 15px 0; /* espaço acima e abaixo da imagem */
+        }
+
+        .figura-container-reduzida img {
+            max-width: 50%; /* imagem ocupa a largura total no mobile */
+            height: auto; /* mantém proporção */
+            border-radius: 4px; /* opcional, suaviza bordas */
+        }
+        
+        /* ===== RESPONSIVIDADE ===== */
+        @media (max-width: 768px) {
+            .quadro-problema {
+                width: 90%;
+                font-size: 15px;
+            }
+
+            .quadro-problema p {
+                font-size: 15px;
+                line-height: 1.5;
+            }
+
+            .figura-container-reduzida img {
+                max-width: 100%; /* imagem se ajusta completamente */
+            }
+
+            .quadro-problema .resolucao {
+                padding: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .quadro-problema {
+                width: 95%;
+                border-width: 1.5px;
+            }
+
+            .quadro-problema p {
+                font-size: 14px;
+            }
+
+            .figura-container-reduzida img {
+                max-width: 100%;
+            }
+        }
+
+        
+        .download-section {
+                padding: 15px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 15px;
+            }
+            .download-btn {
+                background-color: #9F43BE;
+                color: white;
+                text-decoration: none;
+                font-size: 16px;
+                padding: 10px 15px;
+                border-radius: 8px;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                transition: all 0.3s ease;
+                font-weight: bold;
+                margin-top: 80px;
+            }
+
+            .download-btn i {
+                font-size: 18px;
+            }
+
+            .download-btn:hover {
+                background-color: #7D3598;
+            }
+                /* ===== Seções de Conclusão e Referências ===== */
+        .conclusao, .referencias {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .conclusao {
+            background-color: #E2F4EB; /* fundo suave */
+        }
+
+        .referencias {
+            background-color: #FFF;
+            border-top: 3px solid #015A42;
+            border-bottom: 3px solid #015A42;
+        }
+
+        /* Títulos */
+        .titulo-conclusao, .titulo-referencias {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 50px;
+            font-weight: lighter;
+            color: #015A42;
+            margin: 10px auto 20px auto;
+            text-align: left; /* garante centralização em desktop */
+        }
+
+        /* Caixas de texto */
+        .conclusao .caixa-texto, 
+        .referencias .caixa-texto {
+            width: 100%;
+            max-width: 800px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        /* Parágrafos */
+        .conclusao .caixa-texto p,
+        .referencias .caixa-texto p {
+            font-family: 'Roboto', sans-serif;
+            font-size: 19px;
+            line-height: 1.6;
+            text-align: justify;
+            margin-bottom: 15px;
+        }
+
+        /* Cores de texto diferentes */
+        .conclusao .caixa-texto p {
+            color: #333;
+        }
+        .referencias .caixa-texto p {
+            color: #000;
+        }
+
+        /* Links em referências */
+        .referencias .caixa-texto a {
+            word-break: break-all;
+            color: #015A42;
+            text-decoration: underline;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .titulo-conclusao, .titulo-referencias {
+                font-size: 2rem;
+            }
+            .conclusao .caixa-texto p,
+            .referencias .caixa-texto p {
+                font-size: 1rem;
+                line-height: 1.4;
+            }
+            .conclusao .caixa-texto, 
+            .referencias .caixa-texto {
+                max-width: 95%;
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .titulo-conclusao, .titulo-referencias {
+                font-size: 1.8rem;
+            }
+            .conclusao .caixa-texto, 
+            .referencias .caixa-texto {
+                max-width: 100%;
+                padding: 10px;
+            }
+        }
+
+        /* Estilização do rodapé */
+        .footer {
+            border-top: 3px solid #015A42; /* Borda superior */
+            background-color: #FFFFFF; /* Fundo branco */
+            text-align: center; /* Centralizar texto */
+            padding: 15px 0; /* Espaçamento interno */
+            box-sizing: border-box; /* Inclui padding nas dimensões */
+        }
+
+        .footer p {
+            font-family: 'Roboto', sans-serif;
+            font-size: 18px;
+            font-weight: bold;
+            color: #015A42; /* Cor do texto */
+            margin: 0; /* Remove espaçamento externo */
+        }
+        /* Texto descritivo */
+        .footer .fonte-menor {
+            font-family: 'Roboto', sans-serif;
+            font-size: 13px;
+            color: #555; /* Cor neutra */
+            line-height: 1.5; /* Espaçamento entre linhas */
+            display: block; /* Garante quebra para nova linha */
+            margin-top: 10px; /* Espaço entre o texto e o divisor */
+        }
+                /* Divisor */
+        .footer-divider {
+            border: none; /* Remove borda padrão */
+            height: 1px; /* Altura da linha */
+            background-color: #015A42; /* Cor da linha */
+            margin: 10px auto; /* Espaçamento vertical */
+            width: 80%; /* Define a largura do divisor */
+            opacity: 0.5; /* Reduz opacidade para suavizar */
+        }
+                /* Ajustes do rodapé para mobile */
+        @media (max-width: 480px) {
+            .footer p {
+                font-size: 15px; /* Ajusta o tamanho da fonte */
+            }
+            .footer .fonte-menor {
+                font-size: 12px; /* Reduz tamanho da fonte */
+                line-height: 1.4; /* Ajusta o espaçamento */
+            }
+            .footer-divider {
+                width: 100%; /* Ajusta largura do divisor no mobile */
+            }
+        }
+        .logo-final {
+            background-color: #b9e5a92c;
+            padding: 40px 0;
+            text-align: center;
+            border-bottom: 3px solid #015A42;
+        }
+
+        .logo-final img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+        }
+        /* Nova seção com os títulos ocupando a tela inteira */
+        .ficha-titulos {
+            background-color: #fff;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .ficha-titulos h2,
+        .ficha-titulos h3 {
+            font-family: 'Bebas Neue', cursive;
+            font-weight: lighter;
+            font-size: 40px;
+            color: #0058B4;
+            margin: 10px 0;
+        }
+
+        /* Mantemos a ficha técnica como estava */
+        .ficha-tecnica {
+            background-color: #FFF;
+            padding: 60px 20px;
+            text-align: center;
+            font-family: 'Roboto', sans-serif;
+            color: #333;
+        }
+
+        .ficha-tecnica p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin: 15px auto;
+            max-width: 700px;
+        }
+
+        .ficha-tecnica strong {
+            display: block;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        .paragraforeduzido {
+            font-size: 14px;
+        }
+
+/* 🌿 Estilo geral dos blocos destacados */
+p > span[style*="border"] {
+    display: inline-block;
+    padding: 8px 20px;
+    border: 2px solid #015A42;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 90%;
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    line-break: anywhere;
+}
+
+/* Mantém o MathJax sem scroll no desktop */
+p > span[style*="border"] mjx-container {
+    display: inline-block !important;
+    overflow: visible !important; /* sem rolagem */
+    white-space: normal !important;
+    max-width: 100%;
+}
+
+/* 📱 Responsividade específica para mobile */
+@media (max-width: 600px) {
+    p > span[style*="border"] {
+        display: block;
+        padding: 10px 12px;
+        font-size: 0.9em;
+        margin: 0 auto;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* Ativa rolagem horizontal só no mobile */
+    p > span[style*="border"] mjx-container {
+        display: block !important;
+        overflow-x: auto !important;
+        overflow-y: hidden !important;
+        white-space: nowrap !important;
+        text-align: left;
+        -webkit-overflow-scrolling: touch;
+    }
+}
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="logo">
+            <img src="https://drive.google.com/thumbnail?id=1iZTd5_tOqqVTFtrgbqdKazN1J1Yk-PuE" alt="Logo">
+        </div>
+        <div class="menu-toggle">
+            <i class="bx bx-menu"></i>
+            <i class="bx bx-x" style="display: none;"></i> <!-- Ícone de fechar menu -->
+        </div>
+        <ul>
+            <li><a href="#introducao">Introdução</a></li>
+            <li><a href="#secao1">Tópico 1</a></li>
+            <li><a href="#secao2">Tópico 2</a></li>
+            <li><a href="#secao3">Tópico 3</a></li>
+            <li><a href="#secao4">Tópico 4</a></li>
+            <li><a href="#secao5">Tópico 5</a></li>
+            <li><a href="#download">Download</a></li>
+            <li><a href="#conclusao">Conclusão</a></li>
+            <li><a href="#referencias">Refs Bibliográficas</a></li>
+        </ul>
+    </div>
+    
+    
+    <!-- ESPAÇAMENTO -->
+    <section id="titulo" class="titulo-intro">
+        <h1 class="titulo-programa"></h1>
+    </section>
+    <!-- ESPAÇAMENTO -->
+    <section id="titulo" class="titulo-intro">
+        <h1 class="titulo-programa"></h1>
+    </section>
+    <!-- ESPAÇAMENTO -->
+    
+    <!-- Capa do Livro -->
+    <section id="capa-livro" class="capa-livro">
+        <div class="borda superior"></div>
+        <div class="conteudo-capa">
+            <h1 class="titulo-programa">PROGRAMA DE ATUALIZAÇÃO em fundamentos da</h1>
+            <h1 class="titulo-materia">Física - NÍVEL 1</h1>
+            <h2 class="subtitulo-professor">Profª Monica Tais Siqueira D'Amelio Felippe</h2>
+            <h2 class="subtitulo-professor">Prof. Murillo Preto Cardoso Junior</h2>
+        </div>
+        <div class="borda inferior"></div>
+    </section>
+    
+    <!-- ESPAÇAMENTO -->
+    <section id="titulo" class="titulo-intro">
+        <h1 class="titulo-programa"></h1>
+    </section>
+    <!-- ESPAÇAMENTO -->
+    <section id="titulo" class="titulo-intro">
+        <h1 class="titulo-programa"></h1>
+    </section>
+    <!-- ESPAÇAMENTO -->
+    
+    
+    <!-- Seção Introdução -->
+    <section id="introducao" class="introducao">
+        <!-- Barra Superior -->
+        <div class="barra-superior">
+            <h1 class="titulo-barra">UNIDADE 2 | NOTAÇÃO CIENTÍFICA E CONVERSÃO DE UNIDADES</h1>
+        </div>
+    
+        <!-- Conteúdo -->
+        <div class="caixa-texto">
+            <div class="conteudo-centralizado">
+                <h1 class="titulo-introducao">INTRODUÇÃO</h1>
+                
+                <p>
+                    Nesta Unidade serão analisados os conceitos de Notação Científica e a Conversão de Unidades de
+                    Medida. E, para isso, vamos iniciar definindo o que são valores numéricos demasiadamente grandes ou
+                    pequenos e Sistema Decimal Posicional. Na sequência abordaremos a Notação Científica e sua utilidade,
+                    assim como métodos de Conversão de Unidades.
+                </p>
+                
+            </div>
+        </div>
+    </section>
+    <section class="secao1" id="secao1">
+        <div class="faixa-verde">
+            <h1 class="titulo-secao">
+                1. SISTEMA DECIMAL POSICIONAL
+            </h1>
+        </div>
+        
+        <p>
+            Nas ciências em geral, é bastante comum que, ao mensurarmos o valor de determinada Grandeza,
+            encontremos resultados numéricos extremamente elevados ou, em contrapartida, bastante reduzidos.
+            Em ambos os casos, a representação desses valores exige o uso de muitos algarismos. Por exemplo, a
+            velocidade da luz no vácuo corresponde a 300.000.000 m/s (trezentos milhões de metros por segundo).
+            Já a massa de um grão de areia é da ordem de 0,00000000035 kg, o que representa um valor numérico
+            extremamente pequeno.
+        </p>
+        <p>
+            O Sistema Decimal é um sistema de numeração que utiliza como base o número 10. Isso significa que,
+            para representar qualquer valor, são empregados apenas dez algarismos (de 0 a 9). A cada algarismo
+            que compõe um número é atribuída uma posição específica, denominada ordem (Ribeiro, s.d.). A Tabela
+            1 apresenta essas notações.
+        </p>
+
+        <br>
+        <!-- Título fora do container -->
+        <h3 class="titulo-figura-central"><span class="figura"><strong>Tabela 1</strong>.</span> Sistema Decimal Posicional</h3>
+        
+        <!-- Bloco de Figura (sem borda e fundo) -->
+        <section class="bloco-figura-simples tema-verde">
+            <!-- Imagem -->
+            <div class="figura-container">
+                <img class="zoomable" src="https://res.cloudinary.com/di4ria1pf/image/upload/v1761596664/tabela1_qnuewg.png"
+                    alt="">
+            </div>
+            <br>
+            <!-- Fonte abaixo da imagem -->
+            <p class="fonte-imagem">
+                <strong><i>Fonte</strong>: Elaborada pelo autor (2019).</i>
+            </p>
+        
+            <!-- Descrição com largura maior -->
+            <p class="descricao-figura-larga">
+                <strong>Descrição da tabela:</strong>
+                A tabela apresenta as ordens do sistema decimal posicional, com potências de base dez, variando da
+                ordem três positiva até a ordem três negativa. Na ordem três (milhar), o valor é dez elevado à terceira potência,
+                resultando em mil.
+                Na ordem dois (centena), o valor é dez ao quadrado, equivalente a cem. Na ordem um (dezena), temos dez elevado à
+                primeira
+                potência, que corresponde ao número dez. A ordem zero (unidade) representa dez elevado a zero, que é igual a um. A
+                partir da
+                ordem negativa, começam os valores decimais: na ordem menos um (décimo), temos dez elevado a menos um, resultando em
+                zero vírgula um; na ordem menos dois (centésimo), dez elevado a menos dois equivale a zero vírgula zero um; e na ordem
+                menos
+                três (milésimo), dez elevado a menos três é igual a zero vírgula zero zero um.
+            </p>
+        </section>
+        <br>
+    </section>
+    <section class="secao2" id="secao2">
+
+        <div class="faixa-verde">
+            <h1 class="titulo-secao">
+                2. NOTAÇÃO CIENTÍFICA
+            </h1>
+        </div>
+
+        <p>
+            A <strong>notação científica</strong> é uma forma utilizada para representar valores numéricos extremamente grandes
+            ou pequenos, com o objetivo de facilitar os cálculos que envolvem esses números e reduzir a quantidade
+            de algarismos necessários para expressá-los.
+        </p>
+        <p>
+            Para escrever um valor numérico em notação científica, emprega-se uma <strong>potência de base 10</strong> do <strong>Sistema
+            Posicional Decimal</strong> e a ordem do primeiro <strong>algarismo significativo</strong> que compõe o valor. Um número
+            expresso em notação científica sempre segue o seguinte formato (Halliday, 2015):
+        </p>
+        <p style="text-align:center;">
+            <span style="display:inline-block; padding:8px 20px; border:2px solid #015A42; border-radius:10px;">
+                \( M \cdot 10^n \)
+            </span>
+        </p>
+        <br>
+        <p>
+            Onde \( M \) é um valor numérico tal que \( 1 \leq M < 10 \) e \( n \) é a ordem do primeiro algarismo significativo.
+        </p>
+        <p>
+            Vejamos alguns exemplos:
+        </p>
+        <br>
+        <p>
+            a) Dado o valor numérico 2.573.000, temos que:
+        </p>
+        <!-- Bloco de Figura (sem borda e fundo) -->
+        <section class="bloco-figura-simples tema-verde">
+            <!-- Imagem -->
+            <div class="figura-container">
+                <img class="zoomable" src="https://res.cloudinary.com/di4ria1pf/image/upload/v1761597554/Tabela1_sem_numero_erkqgj.png"
+                    alt="">
+            </div>
+        </section>
+        <p>
+            O primeiro <strong>algarismo significativo</strong> para o valor 2.573.000 é o algarismo 2, e este está posicionado na
+            ordem 6, sendo assim:
+        </p>
+        <br>
+        <p style="text-align:center;">
+            <span style="display:inline-block; padding:8px 20px; border:2px solid #015A42; border-radius:10px;">
+                \( 2{.}573{.}000 = 2{,}573 \cdot 10^6,\quad M = 2{,}573 \quad e \quad n = 6 \)
+            </span>
+        </p>
+        <br>
+        <p>
+            b) Dado o valor numérico 0,000034, temos que:
+        </p>
+        <!-- Bloco de Figura (sem borda e fundo) -->
+        <section class="bloco-figura-simples tema-verde">
+            <!-- Imagem -->
+            <div class="figura-container">
+                <img class="zoomable"
+                    src="https://res.cloudinary.com/di4ria1pf/image/upload/v1761619437/Tabela2_sem_numero_mxhlc4.png" alt="">
+            </div>
+        </section>
+        <p>
+            O primeiro <i><strong>algarismo significativo</strong></i> do valor 0,000034 é o algarismo 3, e este está posicionado na ordem
+            −5, sendo assim:
+        </p>
+        <br>
+        <p style="text-align:center;">
+            <span style="display:inline-block; padding:8px 20px; border:2px solid #015A42; border-radius:10px;">
+                \( 0{,}000034 = 3{,}4 \cdot 10^{-5},\quad M = 3{,}4 \quad e \quad n = -5 \)
+            </span>
+        </p>
+        <br>
+        <div class="faixa-verde">
+            <h1 class="titulo-secao" style="font-size: 22px !important;">
+                2.1 REGRA DE ARREDONDAMENTO
+            </h1>
+        </div>
+
+        <p>
+            Quando um número como 54.172.638 for escrito em notação científica, não é necessário escrevê-lo inteiro.
+            Dois algarismos depois da vírgula já são suficientes. Para reduzi-lo, utiliza-se a regra de arredondamento
+            (Halliday, 2015). Deslize pelas setas para descobrir o que essa regra considera:
+        </p>
+
+        <br>
+        <section class="slider-texto-container tema-green" data-slider-id="2">
+            <!-- conteúdo do slider 2 -->
+            <div class="slider-texto-wrapper">
+                <div class="slide-texto ativo">
+                    <p class="conteudo-texto">
+                        Se o algarismo seguinte do que precisa ser arredondado for maior do que 5, aumenta-se em
+                        uma unidade o número do que precisa ser arredondado.
+                    </p>
+                </div>
+                <div class="slide-texto">
+                    <p class="conteudo-texto">
+                        Se o algarismo seguinte do que precisa ser arredondado for menor do que 5, mantém-se o
+                        número que precisa ser arredondado.
+                    </p>
+                </div>
+            </div>
+        
+            <button class="seta-texto esquerda" onclick="mudarSlideTexto(this, -1)">&#10094;</button>
+            <button class="seta-texto direita" onclick="mudarSlideTexto(this, 1)">&#10095;</button>
+        
+            <div class="slider-texto-indicadores">
+            </div>
+        </section>
+        <br>
+        <p>
+            Mas e se o número for igual a cinco? Deslize pelas setas para descobrir o como fazer o arredondamento:
+        </p>
+
+        <br>
+        <section class="slider-texto-container tema-green" data-slider-id="2">
+            <!-- conteúdo do slider 2 -->
+            <div class="slider-texto-wrapper">
+                <div class="slide-texto ativo">
+                    <p class="conteudo-texto">
+                        Se o último algarismo a ser considerado for um número par, permanece igual.
+                    </p>
+                </div>
+                <div class="slide-texto">
+                    <p class="conteudo-texto">
+                        Se o último algarismo a ser considerado for um número ímpar, é arrendado para cima.
+                    </p>
+                </div>
+            </div>
+        
+            <button class="seta-texto esquerda" onclick="mudarSlideTexto(this, -1)">&#10094;</button>
+            <button class="seta-texto direita" onclick="mudarSlideTexto(this, 1)">&#10095;</button>
+        
+            <div class="slider-texto-indicadores">
+            </div>
+        </section>
+        <br>
+        <p>
+            No caso do número 54.172.638, ficaria escrito \( 5{,}42 \cdot 10^{7} \)
+        </p>
+        <br>
+        <p>
+            Vejamos outros exemplos de como escrever números em notação científica, considerando duas casas
+            decimais. Clique nos botões a seguir:
+        </p>
+
+        <br>
+        <!-- Acordeons -->
+        <div class="acordeon-container">
+            <!-- Primeiro acordeon -->
+            <div class="acordeon">
+                <div class="acordeon-headerc">
+                    A) 3.258.743
+                    <i class="bx bx-chevron-down acordeon-icon"></i>
+                </div>
+                <div class="acordeon-contentc">
+                    <p>
+                        Como serão consideradas duas casas após a vírgula: 3,26, pois o algarismo depois do
+                        5 é 8. É só contar quantas casas serão diminuídas e colocar na potência de 10.
+                    </p>
+                    <p style="text-align:center;">
+                        <span style="display:inline-block; padding:8px 20px; font-size: 20px;">
+                            \( 3{,}26 \cdot 10^{6} \)
+                        </span>
+                    </p>
+                </div>
+            </div>
+        
+            <!-- Segundo acordeon -->
+            <div class="acordeon">
+                <div class="acordeon-headerc">
+                    B) 85.457.523.215
+                    <i class="bx bx-chevron-down acordeon-icon"></i>
+                </div>
+                <div class="acordeon-contentc">
+                    <p>
+                        Como serão consideradas duas casas após a vírgula: 8,54, pois o algarismo depois do
+                        4 (par) é 5. É só contar quantas casas serão diminuídas e colocar na potência de 10.
+                    </p>
+                    <p style="text-align:center;">
+                        <span style="display:inline-block; padding:8px 20px; font-size: 20px;">
+                            \( 8{,}54 \cdot 10^{10} \)
+                        </span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <br>
+        <p>
+            Para ficar mais claro, assista ao vídeo a seguir:
+        </p>
+        <br>
+        <div class="video-play-wrapper">
+            <div class="video-play-btn" data-video=""
+                onclick="openVideoModal(this)">
+                <i class='bx bx-play'></i>
+            </div>
+            <div class="video-play-text">Clique para assistir</div>
+        </div>
+        
+        </div>
+        <!-- Modal com o vídeo -->
+        <div id="videoModal" class="video-modal" onclick="closeVideoModal()">
+            <div class="video-content" onclick="event.stopPropagation()">
+                <i class="bx bxs-x-circle close-btn" onclick="closeVideoModal()"></i>
+                <iframe id="videoIframe" width="800" height="450" src="" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+        
+    </section>
+    <section class="secao1" id="secao3">
+        <div class="faixa-verde">
+            <h1 class="titulo-secao">
+                3. OPERAÇÕES COM POTÊNCIAS DE BASE 10
+            </h1>
+        </div>
+        <p>
+            Para trabalharmos com valores expressos em notação científica, é fundamental relembrar as regras básicas
+            de operação com potências de base 10. Isso porque utilizaremos as operações de soma, subtração,
+            multiplicação ou divisão com os números escritos em notação científica.
+        </p>
+        <div class="faixa-verde">
+            <h1 class="titulo-secao" style="font-size: 22px !important;">
+                3.1 ADIÇÃO E SUBTRAÇÃO
+            </h1>
+        </div>
+        <p>
+            A adição e a subtração com potências de base 10 só podem ser realizadas quando se tem expoentes de
+            mesma ordem. Neste caso, conserva-se a potência indicada e operam-se os valores que antecedem as
+            potências (Miranda, s.d.). Clique no botão a seguir:
+        </p>
+
+        <br>
+        <!-- Acordeons -->
+        <div class="acordeon-container">
+            <!-- Primeiro acordeon -->
+            <div class="acordeon">
+                <div class="acordeon-headerc">
+                    EXEMPLOS:
+                    <i class="bx bx-chevron-down acordeon-icon"></i>
+                </div>
+                <div class="acordeon-contentc">
+                    <p style="text-align:center;">
+                        \( 9{,}5 \times 10^{9} - 3{,}2 \times 10^{9} = (9{,}5 - 3{,}2) \times 10^{9} = 6{,}3 \times 10^{9} \)
+                    </p>
+                    
+                    <p style="text-align:center;">
+                        \( 2{,}41 \times 10^{-4} + 3{,}2 \times 10^{-4} = (2{,}41 + 3{,}2) \times 10^{-4} = 5{,}61 \times 10^{-4} \)
+                    </p>
+                </div>
+            </div>
+        </div>
+        <br>
+        <p>
+            Em alguns casos, os valores com potência de base 10 não apresentam a mesma ordem, nestes casos
+            é necessário adequar uma ou mais potências de base 10 para que fiquem na mesma ordem. Clique no
+            botão a seguir:
+        </p>
+
+        <br>
+        <!-- Acordeons -->
+        <div class="acordeon-container">
+            <!-- Primeiro acordeon -->
+            <div class="acordeon">
+                <div class="acordeon-headerc">
+                    EXEMPLOS:
+                    <i class="bx bx-chevron-down acordeon-icon"></i>
+                </div>
+                <div class="acordeon-contentc">
+                    <p style="text-align:center;">
+                        \( 9 \times 10^{5} + 3 \times 10^{7} = 0{,}09 \times 10^{7} + 3 \times 10^{7} = (0{,}09 + 3) \times 10^{7} = 3{,}09
+                        \times 10^{7} \)
+                    </p>
+                    
+                    <p style="text-align:center;">
+                        \( 9 \times 10^{5} + 3 \times 10^{7} = 9 \times 10^{5} + 300 \times 10^{5} = (9 + 300) \times 10^{5} = 309 \times
+                        10^{5} = 3{,}09 \times 10^{7} \)
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="faixa-verde">
+            <h1 class="titulo-secao" style="font-size: 22px !important;">
+                3.2 MULTIPLICAÇÃO
+            </h1>
+        </div>
+        <p>
+            Para multiplicarmos valores com potências de base 10, multiplicamos os valores que antecedem a
+            potência. Para multiplicamos as potências de base 10, utilizando a propriedade da multiplicação de
+            potências de mesma base: mantém-se a base e somam-se as ordens das potências (Ribeiro, s.d.).
+            Clique no botão a seguir:
+        </p>
+        <br>
+        <!-- Acordeons -->
+        <div class="acordeon-container">
+            <!-- Primeiro acordeon -->
+            <div class="acordeon">
+                <div class="acordeon-headerc">
+                    EXEMPLOS:
+                    <i class="bx bx-chevron-down acordeon-icon"></i>
+                </div>
+                <div class="acordeon-contentc">
+                    <p style="text-align:center;">
+                        \( 4 \times 10^{4} \cdot 5 \times 10^{3} = (4 \cdot 5) \times (10^{4} \cdot 10^{3}) = 20 \times 10^{4+3} = 20
+                        \times 10^{7} = 2{,}0 \times 10^{8} \)
+                    </p>
+                
+                    <p style="text-align:center;">
+                        \( 2{,}3 \times 10^{-3} \cdot 3 \times 10^{7} = (2{,}3 \cdot 3) \times (10^{-3} \cdot 10^{7}) = 6{,}9 \times
+                        10^{-3+7} = 6{,}9 \times 10^{4} \)
+                    </p>
+                
+                    <p style="text-align:center;">
+                        \( 5 \times 10^{-2} \cdot 6 \times 10^{-3} = (5 \cdot 6) \times (10^{-2} \cdot 10^{-3}) = 30 \times 10^{-2+(-3)}
+                        = 30 \times 10^{-5} = 3{,}0 \times 10^{-4} \)
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="faixa-verde">
+            <h1 class="titulo-secao" style="font-size: 22px !important;">
+                3.3 DIVISÃO
+            </h1>
+        </div>
+        <p>
+            Para dividirmos valores com potência de base 10 efetuamos a divisão entre os valores que antecedem
+            as potências de base 10 e dividimos as potências de base 10 utilizando a propriedade da divisão de
+            potências de mesma base: mantém-se a base e subtraem-se as ordens das potências (Alonso, 2015).
+            Clique no botão a seguir:
+        </p>
+        <br>
+        <!-- Acordeons -->
+        <div class="acordeon-container">
+            <!-- Primeiro acordeon -->
+            <div class="acordeon">
+                <div class="acordeon-headerc">
+                    EXEMPLOS:
+                    <i class="bx bx-chevron-down acordeon-icon"></i>
+                </div>
+                <div class="acordeon-contentc">
+                    <p style="text-align:center;">
+                        \( 8 \times 10^{6} \div 2 \times 10^{4} = (8 \div 2) \times (10^{6} \div 10^{4}) = 4 \times 10^{6-4} = 4 \times
+                        10^{2} \)
+                    </p>
+                
+                    <p style="text-align:center;">
+                        \( 5 \times 10^{-3} \div 2{,}5 \times 10^{-5} = (5 \div 2{,}5) \times (10^{-3} \div 10^{-5}) = 2 \times
+                        10^{-3-(-5)} = 2 \times 10^{2} \)
+                    </p>
+                
+                    <p style="text-align:center;">
+                        \( 6{,}3 \times 10^{3} \div 2{,}1 \times 10^{-3} = (6{,}3 \div 2{,}1) \times (10^{3} \div 10^{-3}) = 3 \times
+                        10^{3-(-3)} = 3 \times 10^{6} \)
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="secao2" id="secao4">
+        <div class="faixa-verde">
+            <h1 class="titulo-secao">
+                4. CONVERSÃO DE UNIDADES
+            </h1>
+        </div>
+        <p>
+            A conversão de unidades permite transformar a escala utilizada na mensuração de uma grandeza física,
+            conforme a necessidade de aplicação. Em geral, esse processo é realizado para adequar a unidade
+            de medida adotada àquela estabelecida pelo Sistema Internacional de Unidades (SI), bem como para
+            viabilizar o uso de equações físicas (Alonso, 2015).
+        </p>
+        <p>
+            Há duas abordagens principais para a conversão de unidades: a primeira diz respeito aos múltiplos e/ou
+            submúltiplos da unidade; a segunda refere-se à conversão entre diferentes unidades de medida, como,
+            por exemplo, tempo expresso em segundos ou minutos, ou ainda distância medida em metros ou pés
+            (Regras de conversão de unidades de medida, s.d.).
+        </p>
+        <p>
+            Para converter as unidades em seus múltiplos ou submúltiplos, apenas se utiliza a base 10. A Tabela 2
+            apresenta os prefixos que indicam a ordem de potência da base 10.
+        </p>
+        <p>
+            Consideremos que certa pressão seja expressa em \(3,4 \, \text{MPa}\). A unidade Pascal (\(Pa\)) apresenta o prefixo
+            Mega (\(M\)), ou seja, Mega Pascal é um múltiplo da unidade Pascal e como Mega representa a potência \(10^6\), temos
+            que:
+        </p>
+        <br>
+        <p style="text-align:center;">
+            <span style="display:inline-block; padding:8px 20px; border:2px solid #015A42; border-radius:10px;">
+                \( 3{,}4\,MPa = 3{,}4 \times 10^{6}\,Pa = 3{.}400{.}000\,Pa \)
+            </span>
+        </p>
+        <br>
+        <p>
+            Tomemos agora a carga elétrica de valor \( 7{,}1\,\mu\mathrm{C} \)
+            (\( \mu\mathrm{C} = \text{Micro Coulomb} \)).
+            A unidade Coulomb (\( \mathrm{C} \)) apresenta o prefixo Micro (\( \mu \)),
+            ou seja, Micro Coulomb é um submúltiplo da unidade Coulomb e,
+            como Micro representa a potência \( 10^{-6} \), temos que:
+        </p>
+        <br>
+        <p style="text-align:center;">
+            <span style="display:inline-block; padding:8px 20px; border:2px solid #015A42; border-radius:10px;">
+                \( 7{,}1\,\mu C = 7{,}1 \times 10^{-6}\,C = 0{,}0000071\,C \)
+            </span>
+        </p>
+        <br>
+        <br>
+        <!-- Título fora do container -->
+        <h3 class="titulo-figura-central"><span class="figura"><strong>Tabela 2</strong>.</span> Tabela de prefixos</h3>
+        
+        <!-- Bloco de Figura (sem borda e fundo) -->
+        <section class="bloco-figura-simples tema-verde">
+            <!-- Imagem -->
+            <div class="figura-container">
+                <img class="zoomable" src="https://res.cloudinary.com/di4ria1pf/image/upload/v1761680078/tabela2_hakmvn.png"
+                    alt="">
+            </div>
+            <br>
+            <!-- Fonte abaixo da imagem -->
+            <p class="fonte-imagem">
+                <strong><i>Fonte</strong>: Elaborada pelo autor (2019).</i>
+            </p>
+        
+            <!-- Descrição com largura maior -->
+            <p class="descricao-figura-larga">
+                <strong>Descrição da tabela:</strong>
+                A Tabela 2 apresenta os prefixos utilizados para representar múltiplos e submúltiplos das unidades no Sistema
+                Internacional,
+                com suas respectivas potências de base dez e fatores multiplicativos. No grupo dos múltiplos, temos: peta, representado
+                pelo símbolo P, que
+                corresponde a dez elevado à décima quinta potência, ou um quatrilhão; tera, com símbolo T, equivalente a dez elevado à
+                décima segunda, ou um
+                trilhão; giga, representado por G, que corresponde a dez elevado à nona potência, ou um bilhão; mega, com símbolo M,
+                representa dez elevado à
+                sexta, ou um milhão; quilo, simbolizado por k, equivale a dez elevado à terceira potência, ou mil; hecto, com símbolo h,
+                corresponde a dez elevado à
+                segunda, ou cem; e deca, representado por da, que indica dez elevado à primeira potência, ou dez. A unidade de base, sem
+                prefixo, corresponde à
+                potência dez elevado a zero, com fator multiplicativo igual a um. Entre os submúltiplos, a tabela apresenta: deci,
+                representado por d, correspondente
+                a dez elevado à potência negativa um, ou zero vírgula um; centi, com símbolo c, equivalente a dez elevado a menos dois,
+                ou zero vírgula zero um;
+                mili, simbolizado por m, que corresponde a dez elevado a menos três, ou zero vírgula zero zero um; micro, com símbolo
+                grego mi, que equivale a
+                dez elevado a menos seis, ou zero vírgula zero zero zero zero zero um; nano, representado por n, corresponde a dez
+                elevado a menos nove, ou
+                zero vírgula zero zero zero zero zero zero zero zero um; pico, com símbolo p, que indica dez elevado a menos doze, ou
+                zero vírgula zero zero zero
+                zero zero zero zero zero zero zero zero um; e femto, representado por f, equivalente a dez elevado a menos quinze, ou
+                zero vírgula zero zero zero
+                zero zero zero zero zero zero zero zero zero zero zero um.
+            </p>
+        </section>
+        <br>
+        <p>
+            Além dos prefixos, pode-se utilizar um esquema como o da Figura 1 (Regras de conversão de unidades
+            de medida, s.d.).
+        </p>
+        <br>
+        <!-- Título fora do container -->
+        <h3 class="titulo-figura-central"><span class="figura"><strong>Figura 1</strong>.</span> Diagrama de Conversão de Unidade Métrica</h3>
+        
+        <!-- Bloco de Figura (sem borda e fundo) -->
+        <section class="bloco-figura-simples tema-verde">
+            <!-- Imagem -->
+            <div class="figura-container">
+                <img class="zoomable" src="https://res.cloudinary.com/di4ria1pf/image/upload/v1761680165/fig2_ezqcow.png"
+                    alt="">
+            </div>
+            <br>
+            <!-- Fonte abaixo da imagem -->
+            <p class="fonte-imagem">
+                <strong><i>Fonte</strong>: Elaborada pelo autor (2019).</i>
+            </p>
+        
+            <!-- Descrição com largura maior -->
+            <p class="descricao-figura-larga">
+                <strong>Descrição da imagem:</strong>
+                A figura apresenta um diagrama de conversão entre unidades métricas de comprimento, seguindo a escala decimal
+                do Sistema Internacional. A ordem das unidades é a seguinte: quilômetro, hectômetro, decâmetro, metro, decímetro,
+                centímetro e milímetro.
+                Cada unidade representa um valor dez vezes maior ou menor do que a unidade imediatamente adjacente, dependendo da
+                direção da
+                conversão. Quando se converte de uma unidade maior para uma menor, por exemplo, de quilômetro para metro, multiplica-se
+                por dez a
+                cada passo para a direita. Assim, de quilômetro para hectômetro, multiplica-se por dez; de hectômetro para decâmetro,
+                novamente por dez;
+                e assim sucessivamente até alcançar a unidade desejada. Já ao converter de uma unidade menor para uma maior, como de
+                milímetro para
+                metro, realiza-se a operação inversa, ou seja, divide-se por dez a cada passo para a esquerda. Isso significa que cada
+                salto para a esquerda
+                reduz a ordem de grandeza da unidade em um fator de dez.
+            </p>
+        </section>
+        <br>
+        <p>
+            Observa-se que as unidades são múltiplos de 10 e seguem uma lógica padronizada: para converter
+            uma unidade em direção à direita da unidade inicial, deve-se multiplicar sucessivamente por 10 até
+            alcançar a unidade desejada; já para converter uma unidade em direção à esquerda, é necessário dividir
+            sucessivamente por 10 até atingir a unidade correspondente (Ribeiro, s.d.). Essa lógica é válida para
+            qualquer outra unidade de grandeza fundamental. Vejamos os exemplos clicando nos botões a seguir:
+        </p>
+        <br>
+        <!-- Acordeons -->
+        <div class="acordeon-container">
+            <!-- Primeiro acordeon -->
+            <div class="acordeon">
+                <div class="acordeon-headerc">
+                    A) CONVERTA O COMPRIMENTO DE 3 hm PARA cm.
+                    <i class="bx bx-chevron-down acordeon-icon"></i>
+                </div>
+                <div class="acordeon-contentc">
+                    <p>
+                        Note que a unidade <i>hm</i> está à esquerda da unidade <i>cm</i> e que, de <i>hm</i> para <i>cm</i>,
+                        são necessárias quatro multiplicações pelo fator 10.
+                    </p>
+                    <p style="text-align:center;">
+                        $$3\,hm = 3 \times 10 \times 10 \times 10 \times 10\,cm = 30\,000\,cm = 3 \times 10^{4}\,cm$$
+                    </p>
+                </div>
+            </div>
+
+            <!-- Segundo acordeon -->
+            <div class="acordeon">
+                <div class="acordeon-headerc">
+                    B) CONVERTA A MASSA DE 5mg PARA g.
+                    <i class="bx bx-chevron-down acordeon-icon"></i>
+                </div>
+                <div class="acordeon-contentc">
+                    <p>
+                        Assim como o \( mm, mg \) representa o submúltiplo \( mili \). Para passar para \( g \), sem prefixo, seria como o \( m
+                        \). Então são necessárias três divisões pelo fator 10.
+                    </p>
+                    <p style="text-align:center;">
+                        \[
+                        5 \, mg = 5 \div 10 \div 10 \div 10 \, g = 0,005 \, g = 5 \times 10^{-3} \, g
+                        \]
+                    </p>
+                </div>
+            </div>
+        </div>
+        <br>
+        <p>
+            Além das unidades estabelecidas no Sistema Internacional, existem outras unidades que também são
+            utilizadas, porém com menor frequência (Helerbrock, s.d.). A Tabela 3 apresenta algumas unidades de
+            comprimento e sua relação com o metro.
+        </p>
+
+        <br>
+        <!-- Título fora do container -->
+        <h3 class="titulo-figura-central"><span class="figura"><strong>Tabela 3</strong>.</span> Unidade de comprimento e sua relação com o metro</h3>
+        
+        <!-- Bloco de Figura (sem borda e fundo) -->
+        <section class="bloco-figura-simples tema-verde">
+            <!-- Imagem -->
+            <div class="figura-container">
+                <img class="zoomable" src="https://res.cloudinary.com/di4ria1pf/image/upload/v1761681120/tabela3_phsnqs.png"
+                    alt="Unidade de comprimento e sua relação com o metro">
+            </div>
+            <br>
+            <!-- Fonte abaixo da imagem -->
+            <p class="fonte-imagem">
+                <strong><i>Fonte</strong>: Elaborada pelo autor (2019).</i>
+            </p>
+        
+            <!-- Descrição com largura maior -->
+            <p class="descricao-figura-larga">
+                <strong>Descrição da tabela:</strong>
+                A tabela apresenta a relação entre algumas unidades de comprimento utilizadas em sistemas de medida
+                não métricos e sua relação com o metro, que é a unidade do Sistema Internacional de medidas. Uma polegada equivale a
+                zero vírgula zero dois cinco quatro metros. Um pé corresponde a zero vírgula três mil e quarenta e oito metros. Uma jarda
+                equivale a zero vírgula noventa e um metros. Já uma milha representa mil seiscentos e nove vírgula trinta e quatro metros. Por
+                fim, uma légua corresponde a quatro mil oitocentos e vinte e oito vírgula zero trinta e dois metros.
+            </p>
+        </section>
+        <br>
+        <p>
+            Para converter essas unidades, podemos utilizar a regra de três ou a proporcionalidade, também conhecida como fator de
+            conversão. Para exemplificar, considere a conversão de \( 22,3 \) jardas para \( m \). Clique nos cards para ler:
+        </p>
+        <br><br>
+        <div class="cards-container">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">Regra de três:</div>
+                    <div class="flip-card-back">
+                        <div class="math-content">
+                            \( 1 \, \text{jarda} - 0,91 \, m \)
+                            <br>
+                            \( 22,3 \, \text{jardas} - x \)
+                            <br>
+                            \( x = 20,293 \, m \)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">Proporcionalidade:</div>
+                    <div class="flip-card-back">
+                        <div class="math-content">
+                            \( l = 22,3 \, \text{jardas} \times \frac{0,91 \, m}{1 \, \text{jarda}} \)
+                            <br>
+                            \( = 20,293 \, m \)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br><br>
+
+        <p>
+            Assista ao vídeo a seguir para entender um pouco mais sobre o fator de conversão.
+        </p>
+
+        <br>
+        <div class="video-play-wrapper">
+            <div class="video-play-btn" data-video="" onclick="openVideoModal(this)">
+                <i class='bx bx-play'></i>
+            </div>
+            <div class="video-play-text">Clique para assistir</div>
+        </div>
+        
+        </div>
+        <!-- Modal com o vídeo -->
+        <div id="videoModal" class="video-modal" onclick="closeVideoModal()">
+            <div class="video-content" onclick="event.stopPropagation()">
+                <i class="bx bxs-x-circle close-btn" onclick="closeVideoModal()"></i>
+                <iframe id="videoIframe" width="800" height="450" src="" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+        <br>
+        <div class="faixa-verde">
+            <h1 class="titulo-secao" style="font-size: 22px !important;">
+                4.1 CONVERSÃO DE UNIDADE DE TEMPO
+            </h1>
+        </div>
+        <p>
+            A conversão de unidade de tempo é um pouco diferente, pois não é realizada na base 10. Entretanto, o
+            raciocínio a ser seguido é o mesmo, mas, em vez da base 10, usa-se a base 60 (Gouveia, s.d.). Veja os
+            exemplos clicando nos botões a seguir:
+        </p>
+
+        <br>
+        <!-- Acordeons -->
+        <div class="acordeon-container">
+            <!-- Primeiro acordeon -->
+            <div class="acordeon">
+                <div class="acordeon-headerc">
+                    A) 1,5 HORA PARA MINUTOS
+                    <i class="bx bx-chevron-down acordeon-icon"></i>
+                </div>
+                <div class="acordeon-contentc">
+                    <p>
+                        Apenas uma multiplicação por 60:
+                    </p>
+                    <p style="text-align:center;">
+                        \[
+                        1,5 \, h = 1,5 \times 60 \, \text{min} = 90 \, \text{min}
+                        \]
+                    </p>
+                    <p>
+                        Ou por proporcionalidade:
+                    </p>
+                    <p style="text-align:center;">
+                        \[
+                        t = 1,5 \, h \cdot \frac{60 \, \text{min}}{1 \, h} = 90 \, \text{min} \]
+                    </p>
+                </div>
+            </div>
+        
+            <!-- Segundo acordeon -->
+            <div class="acordeon">
+                <div class="acordeon-headerc">
+                    B) 360 SEGUNDOS PARA HORAS
+                    <i class="bx bx-chevron-down acordeon-icon"></i>
+                </div>
+                <div class="acordeon-contentc">
+                    <p>
+                        Duas divisões por 60:
+                    </p>
+                    <p style="text-align:center;">
+                        \[
+                        360 \, s = 360 \div 60 \div 60 \, h = (360 \div 60) \div 60 \, h = 0,1 \, h
+                        \]
+                    </p>
+                    <p>
+                        Ou por proporcionalidade:
+                    </p>
+                    <p style="text-align:center;">
+                        \[
+                        t = 360 \, s \cdot \frac{1 \, \text{min}}{60 \, s} \cdot \frac{1 \, h}{60 \, \text{min}} = 0,1 \, h
+                        \]
+                    </p>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="faixa-verde">
+            <h1 class="titulo-secao" style="font-size: 22px !important;">
+                4.2 CONVERSÃO DE GRANDEZAS DERIVADAS
+            </h1>
+        </div>
+        <p>
+            A conversão de uma grandeza física derivada é baseada no mesmo raciocínio de uma grandeza fundamental,
+            mas precisa considerar todas as grandezas fundamentais que fazem parte. Por exemplo, a área é uma
+            grandeza física derivada da grandeza comprimento em duas vezes, então, para fazer uma mudança
+            de unidade, é necessário considerar a multiplicação dos comprimentos. Então, para cada fator 10 do
+            comprimento, seria 100 para a área (Ribeiro, s.d.). A Figura 2 exemplifica essa explicação.
+        </p>
+
+        <br>
+        <!-- Título fora do container -->
+        <h3 class="titulo-figura-central"><span class="figura"><strong>Figura 2</strong>.</span> Conversão de unidade de área</h3>
+        
+        <!-- Bloco de Figura (sem borda e fundo) -->
+        <section class="bloco-figura-simples tema-verde">
+            <!-- Imagem -->
+            <div class="figura-container">
+                <img class="zoomable" src="https://res.cloudinary.com/di4ria1pf/image/upload/v1761682353/fig2_jcu9io.png"
+                    alt="">
+            </div>
+            <br>
+            <!-- Fonte abaixo da imagem -->
+            <p class="fonte-imagem">
+                <strong><i>Fonte</strong>: Elaborada pelo autor (2019).</i>
+            </p>
+        
+            <!-- Descrição com largura maior -->
+            <p class="descricao-figura-larga">
+                <strong>Descrição da imagem:</strong>
+                A figura mostra o esquema de conversão entre diferentes unidades de área no sistema métrico. Cada unidade
+                está relacionada à próxima por um fator de multiplicação ou divisão por cem. Assim, para converter de um quilômetro
+                quadrado para um hectômetro quadrado, multiplica-se por cem; de um hectômetro quadrado para um decâmetro quadrado, também se
+                multiplica por cem; e assim sucessivamente, até milímetro quadrado. No sentido inverso, para converter de milímetro quadrado para
+                centímetro quadrado, divide-se por cem, e essa divisão por cem se mantém em todas as passagens entre unidades menores para maiores.
+            </p>
+        </section>
+        <br>
+        <p>
+            Como exemplo, vamos converter 200 m² para cm² utilizando o método da proporcionalidade:
+        </p>
+        <br>
+        <p style="text-align:center;">
+            <span style="display:inline-block; padding:8px 20px; border:2px solid #015A42; border-radius:10px;">
+                \( A = 200 \, m^2 \cdot \frac{(100 \, cm)^2}{(1 \, m)^2} = 200 \, m^2 \cdot \frac{100^2 \, cm^2}{1^2 \, m^2} \)
+                <br><br>
+                \( A = 200 \, m^2 \cdot \frac{10^4 \, cm^2}{1 \, m^2} = 200 \cdot 10^4 \, cm^2 \)
+                <br><br>
+                \( A = 2{,}0 \cdot 10^6 \, cm^2 \)
+            </span>
+        </p>
+        <br>
+        <p>
+            Vale ressaltar que, assim como a unidade métrica, a unidade de área também apresenta unidades que
+            não estão definidas no SI, como podemos ver na Tabela 4.
+        </p>
+
+        <br>
+        <!-- Título fora do container -->
+        <h3 class="titulo-figura-central"><span class="figura"><strong>Tabela 4</strong>.</span> Unidades de área em relação ao \(m^2\)</h3>
+        
+        <!-- Bloco de Figura (sem borda e fundo) -->
+        <section class="bloco-figura-simples tema-verde">
+            <!-- Imagem -->
+            <div class="figura-container">
+                <img class="zoomable" src="https://res.cloudinary.com/di4ria1pf/image/upload/v1761683210/tabela4_ryditf.png"
+                    alt="">
+            </div>
+            <br>
+            <!-- Fonte abaixo da imagem -->
+            <p class="fonte-imagem">
+                <strong><i>Fonte</strong>: Elaborada pelo autor (2019).</i>
+            </p>
+        
+            <!-- Descrição com largura maior -->
+            <p class="descricao-figura-larga">
+                <strong>Descrição da tabela:</strong>
+                A tabela apresenta a equivalência de algumas unidades de área em relação ao
+                metro quadrado. Um hectare corresponde a 10.000 metros quadrados. Um acre equivale a 4.046,86
+                metros quadrados. Já uma milha quadrada corresponde a 2.590.000 metros quadrados.
+            </p>
+        </section>
+        <br>
+        <p>
+            Quando a grandeza física derivada possui mais de uma grandeza física fundamental, a conversão de
+            unidade pode ser feita em relação a uma ou mais. Vejamos o caso da densidade, a qual é definida como
+            a razão entre a massa e o volume. A densidade do mercúrio é de \(13{,}6 \, g/cm^3\). Qual seria a densidade no
+            SI? A conversão pode ser feita em uma única vez, mas a análise precisa ser feita para cada grandeza.
+            Veja:
+        </p>
+    </section>
+    <!-- Contêiner externo para definir a cor de fundo -->
+    <section class="outer-background">
+        <!-- Seção Saiba Mais - Retângulo de Fundo -->
+        <section class="background-section">
+            <div class="transparent-section">
+                <p class="learn-more-paragraph" style="text-align: center; line-height: 1.2; margin: 0; padding: 0;">
+                    Primeiro vamos fazer a massa. No SI a massa deve ser expressa em \( kg \).
+                    \[
+                    \rho = 13{,}6 \frac{g}{cm^3} \cdot \frac{1kg}{1000g}
+                    \]
+                    Agora em relação ao volume:
+                    \[
+                    \rho = 13{,}6 \frac{g}{cm^3} \cdot \frac{1kg}{1000g} \cdot \frac{(100cm)^3}{(1m)^3}
+                    \]
+                    Agora é só fazer a conta:
+                    \[
+                    \rho = 13{,}6 \frac{g}{cm^3} \cdot \frac{1kg}{1000g} \cdot \frac{10^6 cm^3}{1m^3} = 13{,}6 \cdot \frac{10^3 kg}{m^3}
+                    \quad ou \quad 1{,}36 \cdot 10^4 \frac{kg}{m^3}
+                    \]
+                </p>
+            </div>
+        </section>
+    </section>
+    <section class="secao2" id="secao4">
+        <p>
+            Assista ao vídeo a seguir para aprender mais sobre essa conversão.
+        </p>
+        <br>
+        <div class="video-play-wrapper">
+            <div class="video-play-btn" data-video="" onclick="openVideoModal(this)">
+                <i class='bx bx-play'></i>
+            </div>
+            <div class="video-play-text">Clique para assistir</div>
+        </div>
+        
+        </div>
+        <!-- Modal com o vídeo -->
+        <div id="videoModal" class="video-modal" onclick="closeVideoModal()">
+            <div class="video-content" onclick="event.stopPropagation()">
+                <i class="bx bxs-x-circle close-btn" onclick="closeVideoModal()"></i>
+                <iframe id="videoIframe" width="800" height="450" src="" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+        <br>
+        <div class="faixa-verde" id="secao5">
+            <h1 class="titulo-secao">
+                5. EXERCÍCIOS COMENTADOS
+            </h1>
+        </div>
+
+        <br>
+        <div class="quadro-problema">
+            <div class="topo">
+                <p>
+                    <strong>1</strong>. Escreva os números abaixo em notação científica, considerando apenas uma casa decimal para o
+                    número significativo.
+                </p>
+               
+                <p>
+                    a) 4.751.236
+                </p>
+                <p>
+                    b) 125.843
+                </p>
+                <p>
+                    c) 8.645.984.127
+                </p>
+            </div>
+            <div class="resolucao">
+                <p><strong>Resolução:</strong></p>
+                <br>
+                <p>
+                    No número 4.751.236, o último algarismo é o 7 e o seguinte, o 5. Assim, o 7 será arredondado para
+                    cima. É só contar quantas casas serão diminuídas e colocar na potência de 10. Desta forma, em notação
+                    científica fica:
+                </p>
+                <p style="text-align:center;">  
+                        \( 4{,}8 \cdot 10^{6} \)
+                </p>
+                <p>
+                    No número 125.843, o último algarismo é 2, e o seguinte é 5. Assim, permanece o mesmo. É só contar
+                    quantas casas serão diminuídas e colocar na potência de 10. Desta forma, fica:
+                </p>
+                <p style="text-align:center;">
+                    \( 1{,}2 \cdot 10^{5} \)
+                </p>
+                <p>
+                    No número 8.645.984.127, o último algarismo é 6, e o seguinte é 4. Assim, permanece o mesmo. É só
+                    contar quantas casas serão diminuídas e colocar na potência de 10. Desta forma, fica:
+                </p>
+                <p style="text-align:center;">
+                    \( 8{,}6 \cdot 10^{9} \)
+                </p>
+            </div>
+        </div>
+        
+        <!-- Aplicando a correção nos cálculos problemáticos -->
+        <div class="quadro-problema">
+            <div class="topo">
+                <p><strong>2</strong>. Resolva as expressões abaixo utilizando as regras da notação científica.</p>
+                <p>a) \( 7{,}1 \times 10^{7} \cdot 2 \times 10^{-2} \)</p>
+                <p>b) \( 4{,}1 \times 10^{2} + 3{,}2 \times 10^{3} \)</p>
+                <p>c) \( 5 \times 10^{-3} \div 4 \times 10^{-2} \)</p>
+            </div>
+            <div class="resolucao">
+                <p><strong>Resolução:</strong></p>
+                <br>
+                <p>a) \( 7{,}1 \times 10^{7} \cdot 2 \times 10^{-2} \)</p>
+                <p>Multiplicam-se os números e somam-se os expoentes e ajusta-se a mantissa para a escrita em notação
+                    científica:</p>
+        
+                <!-- CÁLCULO CORRIGIDO -->
+                <div class="math-equation-container">
+                    <p style="text-align:center; margin: 0; white-space: nowrap;">
+                        \( 7{,}1 \times 10^{7} \cdot 2 \times 10^{-2} = 14{,}2 \times 10^{7 + (-2)} = 14{,}2 \times 10^{5} =
+                        1{,}42 \cdot 10^{6} \)
+                    </p>
+                </div>
+        
+                <br>
+                <p>b) \( 4{,}1 \times 10^{2} + 3{,}2 \times 10^{3} \)</p>
+                <p>Como é soma, os expoentes da base 10 precisam ser os mesmos. Assim, primeiro ajustam-se os números.</p>
+                <p style="text-align:center;">\( 4{,}1 \times 10^{2} + 32 \times 10^{3} \)</p>
+                <p>Agora, somam-se os números e mantém-se a base 10, e ajusta-se a mantissa.</p>
+                <p style="text-align:center;">\( 36{,}1 \times 10^{2} = 3{,}61 \cdot 10^{3} \)</p>
+                <br>
+                <p>c) \( 5 \times 10^{-3} \div 4 \times 10^{-2} \)</p>
+                <p>Como é uma divisão, dividem-se os números que antecedem as potências, e subtraem-se os expoentes das
+                    potências:</p>
+                <p style="text-align:center;">\( \frac{5}{4} \times 10^{-3 - (-2)} = 1{,}25 \cdot 10^{-1} \)</p>
+            </div>
+        </div>
+        
+        <div class="quadro-problema">
+            <div class="topo">
+                <p>
+                    <strong>3</strong>. Um terreno de \( 3{,}6 \) acres está sendo vendido, e um possível comprador calculou a área em \( m^2 \) utilizando a
+                    conversão \( 1 \) acre que corresponde a \( 4.046{,}86 \, m^2 \). Qual o valor da área em \( m^2 \) que ele calculou?
+                </p>
+            </div>
+            <div class="resolucao">
+                <p><strong>Resolução:</strong></p>
+                <br>
+                <p>
+                    Para calcular a área em \(m^2\), é preciso realizar a conversão de unidade. Vamos utilizar a proporcionalidade:
+                </p>
+                <p style="text-align: center;">
+                    \( A = 3{,}6 \, \text{acres} \cdot \frac{4.046{,}85 \, m^2}{1 \, \text{acre}} = 14.586{,}696 \, m^2 \)
+                </p>
+                <p>
+                    Escrevendo em notação científica: Como são dois algarismos significativos, é preciso realizar o
+                    arredondamento. O último número é 4 e seu posterior é o 5. Como o 4 é par, permanece o valor.
+                </p>
+                <p style="text-align: center;">
+                    \( A = 1{,}4 \cdot 10^{4} \, m^2 \)
+                </p>
+            </div>
+        </div>
+    </section>
+    <!-- Seção Conclusão -->
+    <section id="conclusao" class="conclusao">
+        <!-- Conteúdo -->
+        <div class="conteudo-conclusao">
+            <div class="caixa-texto">
+                <h1 class="titulo-conclusao">CONCLUSÃO</h1>
+                <p>
+                    Nesta Unidade, exploramos dois temas fundamentais para a compreensão e aplicação da linguagem
+                    matemática na ciência: a Notação Científica e a Conversão de Unidades de Medida. Estudamos como
+                    representar números muito grandes ou muito pequenos por meio de potências de base decimal, facilitando
+                    os cálculos e a leitura de valores extremos. Além disso, aprendemos a converter unidades de medida entre
+                    diferentes escalas, tanto em grandezas físicas fundamentais, como massa, comprimento e tempo, quanto
+                    em grandezas derivadas, como velocidade, densidade e pressão. Esses conhecimentos são essenciais
+                    para a interpretação de dados, resolução de problemas e comunicação precisa em contextos acadêmicos
+                    e profissionais.
+                </p>
+    
+            </div>
+        </div>
+        <div id="download" class="download-section">
+            <a href="https://drive.google.com/uc?export=download&id=1VnJZ4HjbueJZ4j4rANqET_ut60GkjKt9" class="download-btn">
+                Baixar PDF <i class="fas fa-download"></i> <!-- Ícone de download -->
+            </a>
+        </div>
+    </section>
+    <!-- Seção Referências-->
+    <section id="referencias" class="referencias">
+        <!-- Conteúdo -->
+        <div class="conteudo-referencias">
+            <div class="caixa-texto">
+                <h1 class="titulo-referencias">REFERÊNCIAS</h1>
+                <p>ALONSO, Marcelo; FINN, Edward J. <strong>Física:</strong> um Curso Universitário. 2. ed. São Paulo: Editora Blucher,
+                2015. E-book. p.74. ISBN 9788521208327. Disponível na Minha Biblioteca. Acesso em: 17 ago. 2025.
+                </p>
+                <p>GOUVEIA, R. Medidas de Tempo. <strong>Toda Matéria</strong>, 11 fev. 2021. Disponível em:
+                    <a href="https://www.todamateria.com.br/medidas-de-tempo/"
+                        target="_blank">https://www.todamateria.com.br/medidas-de-tempo/</a>
+                    Acesso em: 11 fev. 2021.
+                </p>
+                <p>HALLIDAY, David; RESNICK, Robert; KRANE, Kenneth S. <strong>Física.</strong> v.1. 5. ed. Rio de Janeiro: LTC, 2003.
+                E-book. p.15. ISBN 978-85-216-1945-1. Disponível na Minha Biblioteca. Acesso em: 17 ago. 2025.
+                </p>
+                <p>HELERBROCK, R. Conversão de unidades. <strong>Mundo Educação</strong>, [s.d.]. Disponível
+                    em:
+                    <a href="https://mundoeducacao.uol.com.br/fisica/conversao-unidades.htm"
+                        target="_blank">https://mundoeducacao.uol.com.br/fisica/conversao-unidades.htm</a>
+                    Acesso em: 21 ago. 2025.
+                </p>
+                <p>MIRANDA, D. Sistema de Numeração Decimal. <strong>Mundo Educação</strong>, Disponível em: <a
+                        href="https://mundoeducacao.uol.com.br/matematica/sistema-numeracao-decimal.htm"
+                        target="_blank">https://mundoeducacao.uol.com.br/matematica/sistema-numeracao-decimal.htm</a>
+                    Acesso em: 25 jan. 2021.
+                </p>
+                <p>REGRAS DE CONVERSÃO DE UNIDADES DE MEDIDA. <strong>Cola da Web</strong>, [s.d.]. Disponível em:
+                    <a href="https://www.coladaweb.com/matematica/regras-de-conversao-de-unidades-de-medida"
+                        target="_blank">https://www.coladaweb.com/matematica/regras-de-conversao-de-unidades-de-medida</a> Acesso em: 21 ago.
+                        2025.
+                </p>
+                <p>RIBEIRO, A. G. Potências de Base 10. <strong>Brasil Escola</strong>, [s.d.]. Disponível em:
+                    <a href="https://brasilescola.uol.com.br/matematica/potencias-base-10.htm"
+                        target="_blank">https://brasilescola.uol.com.br/matematica/potencias-base-10.htm</a>
+                    Acesso em: 21 ago. 2025.
+                </p>
+                <p>SILVA, L. P. M. Notação Científica. <strong>Mundo Educação</strong>, [s.d.]. Disponível em:
+                    <a href="https://mundoeducacao.uol.com.br/matematica/notacao-cientifica.htm"
+                        target="_blank">https://mundoeducacao.uol.com.br/matematica/notacao-cientifica.htm</a>
+                    Acesso em: 21 ago. 2025.
+                </p>
+            </div>
+        </div>
+    </section>
+    <!-- Seção com os créditos e ficha técnica -->
+    <section class="ficha-tecnica">
+        <p>CASA NOSSA SENHORA DA PAZ – AÇÃO SOCIAL FRANCISCANA, PROVÍNCIA FRANCISCANA DA <br>
+            IMACULADA CONCEIÇÃO DO BRASIL – ORDEM DOS FRADES MENORES</p>
+        <br>
+        <p><strong>GESTOR DO CENTRO DE INOVAÇÃO E SOLUÇÕES EDUCACIONAIS - CISE</strong>
+            Franklin Portela Correia</p>
+    
+        <p><strong>COORDENADORA DO PROGRAMA DE ATUALIZAÇÃO</strong>
+            Flávia Cristina Franco de Lima Rosa</p>
+    
+        <p><strong>SUPERVISORA EDUCACIONAL</strong>
+            Juliane Cristine Batista</p>
+    
+        <p><strong>DESIGNER INSTRUCIONAL</strong>
+            Ana Angelica Miranda Ramos</p>
+    
+        <p><strong>PROJETO GRÁFICO</strong>
+            Andréa Calegari<br>
+            Lucas Ichimaru Testa</p>
+    
+        <p><strong>DIAGRAMADORES</strong>
+            Andréa Calegari<br>
+            Lucas Ichimaru Testa</p>
+    
+        <p><strong>DESENVOLVEDOR</strong>
+            Pedro Vinicius Pires de Oliveira Dias</p>
+    
+        <p><strong>PRODUTOR AUDIOVISUAL</strong>
+            Cassio Martins de Carvalho</p>
+    
+        <p><strong>EDIÇÃO DE VÍDEOS</strong>
+            Diogo Lefort Silva<br>
+            Rafael da Silva Oliveira<br>
+            Hugo Henrique Ferreira da Silva</p>
+    
+        <br><br>
+        <p><span class="paragraforeduzido">
+                © 2026 Universidade São Francisco<br>
+                Avenida São Francisco de Assis, 218<br>
+                CEP 12916-900 – Bragança Paulista/SP
+        </p></span>
+    </section>
+    <footer class="footer">
+        <p>Copyright © de Universidade São Francisco</p>
+        <hr class="footer-divider">
+        <span class="fonte-menor">Todos os direitos reservados. Este ebook ou
+            qualquer parte dele não pode ser reproduzido ou usado em quaisquer formas (eletrônico,
+            gravação, fotocópia, distribuição pela Internet ou outros) sem autorização
+            expressa, por escrito, da <strong>Universidade São Francisco.</strong></span>
+    </footer>
+    <script>
+        // Navbar
+            document.querySelector('.menu-toggle').addEventListener('click', () => {
+                const menu = document.querySelector('.navbar ul');
+                const icons = document.querySelectorAll('.menu-toggle i'); // Seleciona ambos os ícones
+
+                menu.classList.toggle('show'); // Alterna a visibilidade do menu
+
+                // Alterna entre o ícone de abrir (menu) e o ícone de fechar (x)
+                icons[0].style.display = icons[0].style.display === 'none' ? 'block' : 'none'; // Mostra ou esconde o ícone de menu
+                icons[1].style.display = icons[1].style.display === 'none' ? 'block' : 'none'; // Mostra ou esconde o ícone de fechar
+            });
+            // Fechar o menu ao clicar em um link
+            const links = document.querySelectorAll('.navbar ul li a');
+            links.forEach(link => {
+                link.addEventListener('click', () => {
+                    const menu = document.querySelector('.navbar ul');
+                    const icons = document.querySelectorAll('.menu-toggle i');
+
+                    // Fecha o menu ao clicar no link
+                    menu.classList.remove('show');
+                    icons[0].style.display = 'block'; // Exibe o ícone de menu
+                    icons[1].style.display = 'none'; // Esconde o ícone de fechar
+                });
+            });
+            // Captura o elemento navbar
+            const navbar = document.querySelector('.navbar');
+
+            // Função que altera a opacidade da navbar
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) { // Quando o scroll for maior que 50px
+                    navbar.style.backgroundColor = 'rgba(159, 67, 190, 0.8)'; // Opacidade 80%
+                } else {
+                    navbar.style.backgroundColor = '#9F43BE'; // Cor original sem transparência
+                }
+            });
+
+
+            // Cria o container lightbox
+            const lightbox = document.createElement("div");
+            lightbox.classList.add("lightbox");
+            document.body.appendChild(lightbox);
+
+            let scale = 1; // nível de zoom
+            let isDragging = false;
+            let startX, startY, translateX = 0, translateY = 0;
+
+            document.querySelectorAll(".zoomable").forEach(img => {
+                img.addEventListener("click", () => {
+                    const imgClone = document.createElement("img");
+                    imgClone.src = img.src;
+                    imgClone.alt = img.alt;
+                    imgClone.style.objectFit = "contain"; // garante que abre ajustada
+                    imgClone.style.maxWidth = "100%";
+                    imgClone.style.maxHeight = "100%";
+
+                    lightbox.innerHTML = "";
+                    lightbox.appendChild(imgClone);
+                    lightbox.style.display = "flex";
+                    scale = 1;
+                    translateX = translateY = 0;
+                    updateTransform(imgClone);
+
+                    // Mensagem de dica
+                    const hint = document.createElement("div");
+                    hint.classList.add("lightbox-hint");
+                    hint.innerText = "Use a roda do mouse para dar zoom e arraste para mover";
+                    lightbox.appendChild(hint);
+
+                    // Remove a dica após 4s
+                    setTimeout(() => {
+                        if (hint && hint.parentNode) {
+                            hint.remove();
+                        }
+                    }, 4000);
+
+                    // Zoom com scroll
+                    imgClone.addEventListener("wheel", e => {
+                        e.preventDefault();
+                        scale += e.deltaY * -0.001;
+                        scale = Math.min(Math.max(1, scale), 5); // limite de zoom
+                        updateTransform(imgClone);
+                    });
+
+                    // Arrastar imagem
+                    imgClone.addEventListener("mousedown", e => {
+                        isDragging = true;
+                        startX = e.clientX - translateX;
+                        startY = e.clientY - translateY;
+                        lightbox.style.cursor = "grabbing";
+                    });
+
+                    window.addEventListener("mousemove", e => {
+                        if (!isDragging) return;
+                        translateX = e.clientX - startX;
+                        translateY = e.clientY - startY;
+                        updateTransform(imgClone);
+                    });
+
+                    window.addEventListener("mouseup", () => {
+                        isDragging = false;
+                        lightbox.style.cursor = "grab";
+                    });
+                });
+            });
+
+            // Fecha clicando fora da imagem
+            lightbox.addEventListener("click", e => {
+                if (e.target === lightbox) {
+                    lightbox.style.display = "none";
+                }
+            });
+
+            // Função para aplicar zoom + movimento
+            function updateTransform(img) {
+                img.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
+            }
+            document.querySelectorAll('.slider-texto-container').forEach(initSliderTexto);
+
+            function initSliderTexto(container) {
+                const slides = container.querySelectorAll('.slide-texto');
+                const indicatorsContainer = container.querySelector('.slider-texto-indicadores');
+
+                indicatorsContainer.innerHTML = ''; // Limpa indicadores anteriores
+
+                // Cria os dots dinamicamente
+                slides.forEach((_, index) => {
+                    const dot = document.createElement('span');
+                    dot.classList.add('dot-texto');
+                    dot.onclick = () => mostrarSlide(index);
+                    indicatorsContainer.appendChild(dot);
+                });
+
+                const dots = container.querySelectorAll('.dot-texto');
+                let currentIndex = 0;
+
+                function mostrarSlide(index) {
+                    slides.forEach(slide => slide.classList.remove('ativo'));
+                    dots.forEach(dot => dot.classList.remove('ativo'));
+
+                    currentIndex = (index + slides.length) % slides.length;
+
+                    slides[currentIndex].classList.add('ativo');
+                    dots[currentIndex].classList.add('ativo');
+                }
+
+                // Armazena a função no container para chamadas externas
+                container.mostrarSlideTexto = mostrarSlide;
+                container.getCurrentIndex = () => currentIndex;
+                mostrarSlide(0);
+            }
+
+            // Chamado pelos botões de seta
+            function mudarSlideTexto(button, direcao) {
+                const container = button.closest('.slider-texto-container');
+                const currentIndex = container.getCurrentIndex();
+                container.mostrarSlideTexto(currentIndex + direcao);
+            }
+
+            // Chamado pelos dots (não necessário, mas deixado por compatibilidade)
+            function irParaSlideTexto(dot, index) {
+                const container = dot.closest('.slider-texto-container');
+                container.mostrarSlideTexto(index);
+            }
+
+            document.querySelectorAll('.acordeon-header, .acordeon-headerb, .acordeon-headerc, .acordeon-headerd').forEach(header => {
+                header.addEventListener('click', () => {
+                    const content = header.nextElementSibling;
+                    const isVisible = content.style.display === 'block';
+                    content.style.display = isVisible ? 'none' : 'block';
+                    const icon = header.querySelector('.acordeon-icon');
+                    if (icon) {
+                        icon.classList.toggle('bx-chevron-up', !isVisible);
+                        icon.classList.toggle('bx-chevron-down', isVisible);
+                    }
+                });
+            });
+
+            // Função para abrir o modal com o vídeo
+            function openVideoModal(element) {
+                var videoModal = document.getElementById('videoModal');
+                var iframe = document.getElementById('videoIframe');
+
+                // Obtém o link do vídeo do atributo 'data-video' do ícone de play clicado
+                var videoLink = element.getAttribute("data-video");
+
+                // Define o src do iframe com o link do vídeo
+                iframe.src = videoLink;
+
+                // Exibe o modal
+                videoModal.style.display = "flex";
+            }
+
+            // Função para fechar o modal
+            function closeVideoModal() {
+                var videoModal = document.getElementById('videoModal');
+                var iframe = document.getElementById('videoIframe');
+
+                // Limpa o vídeo (remove a URL para evitar que o vídeo continue tocando)
+                iframe.src = "";
+                videoModal.style.display = "none";  // Fecha o modal
+            }
+
+            // Impede o fechamento do modal quando o clique for dentro do modal de vídeo
+            document.getElementById('videoModal').addEventListener('click', function (event) {
+                // Apenas fecha o modal se o clique for fora da área de conteúdo (ou seja, na área preta)
+                if (event.target === this) {
+                    closeVideoModal();
+                }
+            });
+
+            document.addEventListener('DOMContentLoaded', () => {
+                    // Aplica o comportamento apenas em telas pequenas
+                    if (window.matchMedia('(max-width: 600px)').matches) {
+
+                        document.querySelectorAll('.acordeon-contentc').forEach(container => {
+                            let startX = 0;
+                            let scrollLeft = 0;
+                            let isDragging = false;
+
+                            container.addEventListener('touchstart', e => {
+                                if (e.touches.length !== 1) return; // ignora múltiplos dedos
+                                isDragging = true;
+                                startX = e.touches[0].pageX;
+                                scrollLeft = container.scrollLeft;
+                            }, { passive: true });
+
+                            container.addEventListener('touchmove', e => {
+                                if (!isDragging) return;
+                                const x = e.touches[0].pageX;
+                                const walk = startX - x;
+                                // Impede que outros acordeons rolem
+                                e.stopPropagation();
+                                container.scrollLeft = scrollLeft + walk;
+                            }, { passive: false });
+
+                            container.addEventListener('touchend', () => {
+                                isDragging = false;
+                            });
+
+                            container.addEventListener('touchcancel', () => {
+                                isDragging = false;
+                            });
+                        });
+
+                    }
+                });
+
+                // Adiciona interação por toque para dispositivos móveis
+                    document.addEventListener('DOMContentLoaded', function () {
+                        const flipCards = document.querySelectorAll('.flip-card');
+
+                        flipCards.forEach(card => {
+                            card.addEventListener('click', function () {
+                                // Verifica se é um dispositivo touch
+                                if ('ontouchstart' in window || navigator.maxTouchPoints) {
+                                    // Remove a classe active de todos os cards
+                                    flipCards.forEach(c => c.classList.remove('active'));
+                                    // Adiciona a classe active apenas ao card clicado
+                                    this.classList.add('active');
+                                }
+                            });
+                        });
+
+                        // Fecha o card ao clicar fora
+                        document.addEventListener('click', function (event) {
+                            if (!event.target.closest('.flip-card')) {
+                                flipCards.forEach(card => card.classList.remove('active'));
+                            }
+                        });
+                    });
+    </script>
+</body>
+</html>
